@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>IP价值评估系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="css/show_results.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<div class="wrap_body">
+		<div class="wrap">
+			<div class="nav_bg"></div>
+	
+			<div class="top_box">
+				<img class="logo" src="static/img/logo@2x.png" alt="">
+			</div>
+	
+			<div class="wrap_nav">
+				<div class="nav">
+					<h1 class="header">IP价值评估系统</h1>
+					<div class="step">
+						<img src="static/img/1__.svg" alt="" class="icon">
+						<span class="step_name">填写IP信息</span>
+					</div>
+					<div class="v_line"></div>
+					<div class="step">
+						<img src="static/img/2__.svg" alt="" class="icon">
+						<span class="step_name">抓取网络信息</span>
+					</div>
+					<div class="v_line"></div>
+					<div class="step">
+						<img src="static/img/3_.svg" alt="" class="icon">
+						<span class="step_name">输出分析结果</span>
+					</div>
+					<a class="return" href="index.html">
+						<img src="static/img/return.svg" alt=""> <span>返回首页</span>
+					</a>
+				</div>
+			</div>
+	
+			<div class="wrap_main">
+				<div class="row_box cover_row clear">
+					<div class="row_item">
+						<img src="static/img/cover@2x.png" alt="">
+					</div>
+					<div class="row_item">
+						<div class="title">延禧攻略</div>
+						<div class="cont">
+							<div class="cont_row">
+								<span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
+								<span>爱情、剧情、宫廷、古装</span>
+							</div>
+							<div class="cont_row">
+								<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</span>
+								<span>内地</span>
+							</div>
+							<div class="cont_row">
+								<span>语&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：</span>
+								<span>普通话</span>
+							</div>
+							<div class="cont_row">
+								<span>上映时间</span>
+								<span>2018</span>
+							</div>
+						</div>
+					</div>
+					<div class="row_item echart_row_item">
+						<div class="score">
+							<div>总评分</div>
+							<div class="font_num">8.9</div>
+							<div>高于 <span class="font_num">70%</span> 同类IP</div>
+							<div>高于 <span class="font_num">65%</span> 所有IP</div>
+						</div>
+						<div class="echart">
+							<div id="score_radar"></div>
+						</div>
+						<div class="explain">IP最终得分反映其在平台上的预期播放量，得分越高表名预期播放量越高。</div>
+					</div>
+				</div>
+
+				<div class="title title_a">背景</div>
+				<div class="row_box bg_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">市场规律</div>
+								<div class="score font_num">8.5</div>
+							</div>
+							<img class="explain explain_bg_1" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="mkt_heatmap" class="echart"></div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">投资</div>
+								<div class="score font_num">8.1</div>
+							</div>
+							<img class="explain explain_bg_2" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="invest_scatter" class="echart"></div>
+							<div id="invest_pie" class="echart"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="title title_a">制作班底与演员</div>
+				<div class="row_box actor_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">导演与演员</div>
+								<div class="score font_num">8.1</div>
+							</div>
+							<img class="explain explain_act_1" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="actors_graph" class="echart"></div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">发行方</div>
+								<div class="score font_num">8.1</div>
+							</div>
+							<img class="explain explain_act_2" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="cont">
+							<div class="detail">
+								<div>制作方</div>
+								<div class="f_name">东阳欢娱影视文化有限公司</div>
+								<div>旗下作品28部</div>
+								<div>作品平均评分7.8分</div>
+								<div>高于 <span class="font_num">70%</span> 发行公司</div>
+							</div>
+							<div class="v_line"></div>
+							<div class="detail">
+								<div>发行方</div>
+								<div class="f_name">北京爱奇艺科技有限公司</div>
+								<div>旗下作品1320部</div>
+								<div>作品平均评分7.1分</div>
+								<div>高于 <span class="font_num">90%</span> 发行公司</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="title title_a">内容质量</div>
+				<div class="row_box content_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">剧情</div>
+								<div class="score font_num">7.5</div>
+							</div>
+						</div>
+						<div class="cont">
+							<div>剧情与12部电视剧IP相似</div>
+							<div>相似电视剧IP平均播放量130万</div>
+							<br>
+							<div>高于 <span class="font_num">83%</span>	同类IP</div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">市场适应情况</div>
+								<div class="score font_num">7.5</div>
+							</div>
+							<img class="explain" class="explain_cont" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="mkt_adapt_bar" class="echart"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="title title_a">历史市场表现 <img class="explain_hst" src="static/img/q2.svg" style="float: right;" alt="">	</div>
+				<div class="row_box hst_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">历史播放指数</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+						<div class="wrap_chart">
+							<div id="hst_play_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<span style="text-align: left;">
+								<span>预测下周播放量（日）：7500</span>
+								<br>
+								<span>预测下周爱奇艺播放指数（日）：8500</span>
+							</span>
+							<br>
+							<br>
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">历史收视率</div>
+								<div class="score font_num">8.1</div>
+							</div>
+							<img class="explain" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="hst_watch_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<br>
+							<div>预测下周播放量（日）：7500</div>
+							<br>
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="title title_a">用户留言与评论 <img class="explain_cmt" src="static/img/q2.svg" style="float: right;" alt="">	</div>
+				<div class="row_box cmt_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">微博留言</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="cont">
+							<div>点高赞微博：</div>
+							<div class="font_cont">第一！延禧攻略70集一集不落全部追完了，真的是一部制作精良的剧！大赞！</div>
+							<div class="font_cont">期待期待。终于上星播出了。</div>
+						</div>
+						<div class="wrap_chart">
+							<div id="cmt_weibo_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">新闻评论</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="cont">
+							<div>主流新闻网站评论：</div>
+							<div class="font_cont">一如既往支持吴谨言！</div>
+							<div class="font_cont">喜欢秦岚演的皇后，好温柔！</div>
+							<div class="font_cont">傅璎女孩表示下一部剧快安排上 超甜的那种。</div>
+						</div>
+						<div class="wrap_chart">
+							<div id="cmt_news_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">豆瓣评论与评分</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="cont">
+							<div>豆瓣评分: <span class="font_cont">7.2</span></div>
+							<div>豆瓣短评：</div>
+							<div class="font_cont">昨晚看了几集，比于妈以往宫斗剧服化道制作更加精良，画面质感好，演员演技在线，四星观望。</div>
+						</div>
+						<div class="wrap_chart">
+							<div id="cmt_douban_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+	
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">知名影评</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="cont">
+							<div>豆瓣知名影评：</div>
+							<div>昨晚看了几集，比于妈以往宫斗剧服化道制作更加精良，画面质感好，演员演技在线，四星观望。</div>
+						</div>
+						<div class="wrap_chart">
+							<div id="film_critics_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+				</div>
+				
+
+				<div class="title title_a">潮流与关注度 <img class="explain_att" src="static/img/q2.svg" style="float: right;" alt="">	</div>
+				<div class="row_box att_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">微博指数</div>
+								<div class="score font_num">8.1</div>
+							</div>
+							<img class="explain" src="static/img/down.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="msg_weibo_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<br>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">微信指数</div>
+								<div class="score font_num">8.5</div>
+							</div>
+							<img class="explain" src="static/img/up.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="msg_wechat_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<br>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">新闻指数</div>
+								<div class="score font_num">8.5</div>
+							</div>
+							<img class="explain" src="static/img/up.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="msg_news_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<br>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">百度指数</div>
+								<div class="score font_num">7.5</div>
+							</div>
+							<img class="explain" src="static/img/up.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="msg_baidu_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<br>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+
+
+					<div class="row_item">
+							<div class="banner_blue">
+								<div>
+									<div class="title">想看数量统计</div>
+									<div class="score font_num">8</div>
+								</div>
+								<img class="explain" src="static/img/up.svg" alt="">
+							</div>
+							<div class="wrap_chart">
+								<div id="msg_wish_line" class="echart"></div>
+							</div>
+							<div class="cont">
+								<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<br>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/echarts.min.js"></script>
+<script src="js/show_results.js"></script>
+<!-- script放在body上面会先执行 -->
+
+</html>

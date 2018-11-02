@@ -1,0 +1,179 @@
+// @nav_width: 19.23%;
+@nav_width: 280px;
+@flow_icon_size: 25px;
+@icon_state:24px;
+.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.wrap{
+    // min-width: 1250px; 
+    width: 1440px;
+    position: relative;
+}
+.nav_bg{
+    .fixed();
+    height: 100px;
+    width: @nav_width;
+    min-width: 240px;
+    background: -webkit-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    background: -o-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    background: -moz-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    background: linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+}
+.wrap_nav{
+    min-width: 240px;
+    .fixed();
+    width: @nav_width;
+    text-align: center;
+}
+.nav{
+    display: inline-block;
+    background: rgba(255,255,255,0);
+    text-align: left;
+}
+.header{
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 152px;
+    font-size:26px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgb(255, 255, 255);
+    line-height:37px;
+}
+.step{
+    .icon{
+        width: @flow_icon_size;
+        height: @flow_icon_size;
+    }
+    font-size:16px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    margin-bottom: 20px;
+}
+.step_name{
+    vertical-align: middle;
+}
+.v_line{
+    width:2px;
+    height:110px;
+    opacity:0.5;
+    color: white;
+    border: 1px solid;
+    margin-left: 12px; 
+    margin-bottom: 20px;
+}
+.top_box{
+    float: right;
+    // width: calc(100% - @nav_width);
+    width: 1160px;
+    position: relative;
+    height:80px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 6px 14px 0px rgba(0,24,53,0.1);
+    z-index: -1;
+}
+.logo{
+    width: 171px;
+    height: 49px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 26px;
+    margin-top: 17px;
+}
+.wrap_main{
+    float: right;
+    // width: calc(100% - @nav_width);
+    width: 1160px;
+    padding-top: 40px;
+}
+.main_box{
+    width: 93.1%;
+    margin:auto;
+    max-width: 1080px;
+}
+.next_step{
+    display: block;
+    cursor: pointer;
+    margin: 40px auto;
+    width: 210px;
+    line-height: 60px;
+    text-align: center;
+    height: 60px;
+    border:0px;
+    font-size:18px;
+    font-family:PingFangSC-Medium;
+    color: white;
+    background: -webkit-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    background: -o-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    background: -moz-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    background: linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%);
+    border-radius: 7px;
+
+    &:hover{
+        text-decoration: none;
+        color: white;
+    }
+}
+.wrap_table{
+    background:rgba(255,255,255,1);
+    box-shadow:0px 2px 10px 0px rgba(0,24,53,0.08);
+    border-radius:4px;
+}
+.th{
+    font-size:16px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(155,155,155,1);
+    margin-bottom: 10px;
+    div{
+        display: inline-block;
+        &:nth-of-type(1){
+            text-align: center;
+            width: 20.8%;
+        }
+        &:nth-of-type(2){
+            width: 30.8%;
+        }
+        &:nth-of-type(3){
+            width: 36%;
+        }
+        &:nth-of-type(4){
+            width: 12.4%;
+        }
+    }
+}
+.myrow{
+    font-size:18px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(74,74,74,1);
+    padding: 19px 0px;
+    vertical-align: center;
+    &:nth-of-type(2n){
+        background:rgba(238,243,247,1);    
+    }
+    div{
+        display: inline-block;
+        vertical-align: middle;
+        &:nth-of-type(1){
+            text-align: center;
+            width: 20.8%;
+        }
+        &:nth-of-type(2){
+            width: 30.8%;
+            padding-right: 95px;
+        }
+        &:nth-of-type(3){
+            width: 36%;
+            padding-right: 95px;
+        }
+        &:nth-of-type(4){
+            width: 12.4%;
+        }
+    }
+}
