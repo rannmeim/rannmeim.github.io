@@ -3,6 +3,10 @@
   top: 0;
   left: 0;
 }
+.wrap {
+  width: 1540px;
+  position: relative;
+}
 .nav_bg {
   position: fixed;
   top: 0;
@@ -61,7 +65,7 @@
 }
 .top_box {
   float: right;
-  width: calc(100% - 280px);
+  width: 1260px;
   position: relative;
   height: 80px;
   background: #ffffff;
@@ -79,7 +83,7 @@
 }
 .wrap_main {
   float: right;
-  width: calc(100% - 280px);
+  width: 1260px;
   padding: 40px;
 }
 .return {
