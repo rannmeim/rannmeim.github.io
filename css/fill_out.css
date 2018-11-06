@@ -159,6 +159,22 @@ input[type='number']::-webkit-input-placeholder {
   font-family: PingFangSC-Regular;
   font-weight: 400;
 }
+input[type='month']::-moz-input-placeholder,
+input[type='text']::-moz-input-placeholder,
+input[type='number']::-moz-input-placeholder {
+  color: #9b9b9b;
+  font-size: 16px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+}
+input[type='month']::-ms-input-placeholder,
+input[type='text']::-ms-input-placeholder,
+input[type='number']::-ms-input-placeholder {
+  color: #9b9b9b;
+  font-size: 16px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+}
 input[type="radio"] {
   vertical-align: top;
 }
@@ -180,6 +196,18 @@ textarea {
   resize: none;
 }
 textarea::-webkit-input-placeholder {
+  color: #9b9b9b;
+  font-size: 16px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+}
+textarea::-moz-input-placeholder {
+  color: #9b9b9b;
+  font-size: 16px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+}
+textarea::-ms-input-placeholder {
   color: #9b9b9b;
   font-size: 16px;
   font-family: PingFangSC-Regular;

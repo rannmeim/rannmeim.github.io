@@ -14,35 +14,25 @@
 <body>
 	<div class="wrap_body">
 		<div class="wrap">
-			<div class="nav_bg"></div>
-	
-			<div class="top_box">
-				<img class="logo" src="static/img/logo@2x.png" alt="">
-			</div>
-	
-			<div class="wrap_nav">
-				<div class="nav">
-					<h1 class="header">IP价值评估系统</h1>
-					<div class="step">
-						<img src="static/img/1__.svg" alt="" class="icon">
-						<span class="step_name">填写IP信息</span>
-					</div>
-					<div class="v_line"></div>
-					<div class="step">
-						<img src="static/img/2__.svg" alt="" class="icon">
-						<span class="step_name">抓取网络信息</span>
-					</div>
-					<div class="v_line"></div>
-					<div class="step">
-						<img src="static/img/3_.svg" alt="" class="icon">
-						<span class="step_name">输出分析结果</span>
-					</div>
-					<a class="return" href="index.html">
-						<img src="static/img/return.svg" alt=""> <span>返回首页</span>
-					</a>
+			<div id="block_header">
+				<div id="block_header_div1">
+					<div id="Header_Name">IP价值评估系统</div>
+					<!-- <div id="search_input_div"> -->
+						<!-- <img id="search_img" src="static/img/search.svg" alt="" class="icon"> -->
+						<!-- <input type="text" name="" id="search_input" placeholder="请输入IP名称"> -->
+						<!-- <input type="text" name="" id="search_input" onfocus="javascript:if(this.value=='请输入IP名称')this.value='';"> -->
+					<!-- </div><button id="get_data_btn" onclick="getData();">获 取 数 据</button> -->
+					<!-- <img id="batch_upload_img" src="static/img/batch_upload.svg" class="icon"> -->
+					<!-- <button id="batch_upload_btn">批量导入</button> -->
+					<!-- <img id="download_template_img" src="static/img/download_template.svg" class="icon"> -->
+					<button id="to_index_btn" onclick='gotoindex()'>回到首页</button>
 				</div>
+				<!-- <div id="block_header_div2">
+					填写IP名称后可获取数据，也可下载模版，填写之后批量导入。
+				</div> -->
 			</div>
-	
+
+
 			<div class="wrap_main">
 				<div class="row_box cover_row clear">
 					<div class="row_item">
@@ -420,6 +410,13 @@
 							</div>
 						</div>
 				</div>
+			</div>
+
+
+			<div id="page_logo_div">
+				<div id="line_left"></div>
+				<img id="logo_img" src="static/img/logo@2x.png" class="icon">
+				<div id="line_right"></div>
 			</div>
 		</div>
 	</div>

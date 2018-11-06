@@ -2,131 +2,220 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>IP价值评估系统</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="css/fill_out.css">
-	<script src="js/jquery-3.3.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>IP价值评估系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/P1.css">
 </head>
 
 <body>
-	<div class="wrap clear">
-		<div class="nav_bg"></div>
+    <div id="block_header">
+        <div id="block_header_div1">
+            <div id="Header_Name">IP价值评估系统</div>
+            <div id="search_input_div">
+                <img id="search_img" src="static/img/search.svg" alt="" class="icon">
+                <input type="text" name="" id="search_input" placeholder="请输入IP名称">
+                <!-- <input type="text" name="" id="search_input" onfocus="javascript:if(this.value=='请输入IP名称')this.value='';"> -->
+            </div><button id="get_data_btn" onclick="getData();">获 取 数 据</button>
+            <img id="batch_upload_img" src="static/img/batch_upload.svg" class="icon">
+            <button id="batch_upload_btn">批量导入</button>
+            <img id="download_template_img" src="static/img/download_template.svg" class="icon">
+            <button id="download_template_btn">下载模版</button>
+        </div>
+        <div id="block_header_div2">
+            填写IP名称后可获取数据，也可下载模版，填写之后批量导入。
+        </div>
+    </div>
+    <!-- 基本属性 -->
+    <div class="data_label">
+        <div class="v_line"></div>
+        <div class="data_label_name">基本属性</div>
+        <img class="modify_img" src="static/img/modify.svg" class="icon">
+        <button class="modify_label" onclick="modify_basic_attr()">修改</button>
+    </div>
+    <div class="data_content basic_attr">
+        <div class="data_item_short_div">
+            <div class="data_item_short_div_label">
+                <label class="data_item_short_div_label_row">中文名</label>
+                <label class="data_item_short_div_label_row">出品时间</label>
+                <label class="data_item_short_div_label_row">出品公司</label>
+                <label class="data_item_short_div_label_row">拍摄地区</label>
+                <label class="data_item_short_div_label_row">拍摄地点</label>
+                <label class="data_item_short_div_label_row">发行公司</label>
+                <label class="data_item_short_div_label_row">首播时间</label>
+                <label class="data_item_short_div_label_row">导演</label>
+                <label class="data_item_short_div_label_row">编剧</label>
+            </div>
+            <div class="data_item_short_div_data">
+                <input type="text" class="data_item_short_div_data_row" name="中文名" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="出品时间" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="出品公司" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="拍摄地区" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="拍摄地点" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="发行公司" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="首播时间" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="导演" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="编剧" value="---">
+            </div>
+            <div class="data_item_short_div_label">
+                <label class="data_item_short_div_label_row">英文名</label>
+                <label class="data_item_short_div_label_row">集数</label>
+                <label class="data_item_short_div_label_row">每集长度</label>
+                <label class="data_item_short_div_label_row">类型</label>
+                <label class="data_item_short_div_label_row">制片人</label>
+                <label class="data_item_short_div_label_row">在线播放平台</label>
+                <label class="data_item_short_div_label_row">播出平台</label>
+                <label class="data_item_short_div_label_row">语言平台</label>
+                <label class="data_item_short_div_label_row">上星平台</label>
+            </div>
+            <div class="data_item_short_div_data">
+                <input type="text" class="data_item_short_div_data_row" name="英文名" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="集数" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="每集长度" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="类型" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="制片人" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="在线播放平台" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="播出平台" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="语言平台" value="---">
+                <input type="text" class="data_item_short_div_data_row" name="上星平台" value="---">
+            </div>
+        </div>
+        <div class="data_item_long_div">
+            <div class="data_item_long_div_label">
+                <label class="data_item_long_div_label_row">主演</label>
+                <label class="data_item_long_div_label_row">剧情简介</label>
+            </div>
+            <div class="data_item_long_div_data">
+                <input type="text" class="data_item_long_div_data_row" name="主演" value="----------------------">
+                <input type="text" class="data_item_long_div_data_row" name="剧情简介" value="----------------------">
+            </div>
+        </div>
+    </div>
 
-		<div class="top_box">
-			<img class="logo" src="static/img/logo@2x.png" alt="">
-		</div>
-
-		<div class="wrap_nav">
-			<div class="nav">
-				<h1 class="header">IP价值评估系统</h1>
-				<div class="step">
-					<img src="static/img/1_.svg" alt="" class="icon">
-					<span class="step_name">填写IP信息</span>
-				</div>
-				<div class="v_line"></div>
-				<div class="step">
-					<img src="static/img/2.svg" alt="" class="icon">
-					<span class="step_name">抓取网络信息</span>
-				</div>
-				<div class="v_line"></div>
-				<div class="step">
-					<img src="static/img/3.svg" alt="" class="icon">
-					<span class="step_name">输出分析结果</span>
-				</div>
-			</div>
-		</div>
-
-		<div class="wrap_main">
-			<div class="main_box">
-				<h2 class="subheader">IP背景输入</h2>
-				<div class="content">
-					<div class="row">
-						<span class="title">IP名称：</span> <input value="延禧攻略" class="long_width" type="text" placeholder="请输入IP名称" autofocus="true">
-					</div>
-					<div class="row">
-						<span class="title">导演信息：</span> <input value="惠楷栋" class="short_width" type="text" placeholder="导演名">
-					</div>
-					<div class="row actor_row">
-						<span class="title">演员信息：</span> <input value="吴谨言" class="short_width" type="text" placeholder="演员名">&nbsp;&nbsp;<img class="icon_add"
-						 src="static/img/Combined Shape.svg" alt="">
-					</div>
-					<div class="row">
-						<span class="title">国别：</span>
-						<div class="wrap_select">
-							<select class="select_nation short_width">
-								<option value="中国">中国</option>
-								<option value="美国">美国</option>
-								<option value="日本">日本</option>
-								<option value="英国">英国</option>
-								<option value="德国">德国</option>
-								<option value="法国">法国</option>
-								<option value="意大利">意大利</option>
-							</select>
-							<input value="大陆" type="text" id="input" name="input" class="select_input nation_input" placeholder="请选择国别">
-						</div>
-					</div>
-
-					<div class="row">
-						<span class="title">上映日期：</span> <input value="2018-06" class="short_width" type="month">
-
-					</div>
-					<div class="row">
-						<span class="title">发行方/公司：</span> <input value="东阳欢娱影视文化有限公司" class="long_width" type="text" placeholder="发行方/公司名称">
-					</div>
-					<div class="row">
-						<span class="title">制片方：</span> <input value="东阳欢娱影视文化有限公司" class="long_width" type="text" placeholder="请输入制片方名称">
-					</div>
-					<div class="row">
-						<span class="title">投资金额：</span> <input value="30000" class="short_width" type="number" placeholder="请输如阿拉伯数字">&nbsp;&nbsp;<span>万元</span>
-					</div>
-				</div>
-
-				<h2 class="subheader">IP内容输入</h2>
-				<div class="content">
-					<div class="row">
-						<span class="title">影视题材：</span>
-						<div class="wrap_select">
-							<select class="select_theme long_width">
-								<option value="科幻">科幻</option>
-								<option value="喜剧">喜剧</option>
-								<option value="爱情">爱情</option>
-								<option value="奇幻">奇幻</option>
-								<option value="动作">动作</option>
-								<option value="剧情">剧情</option>
-							</select>
-							<input value="古装" type="text" id="input" name="input" class="select_input theme_input" placeholder="请选择影视题材，或者直接输入">
-						</div>
-					</div>
-
-					<div class="row">
-						<span class="title">文学作品改编：</span>
-						<input id="is_adapted" type="radio" name="adapted" value="1" checked=true>
-						<label for="is_adapted"><span>&nbsp;是</span></label>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						<input id="not_adapted" type="radio" name="adapted" value="0">
-						<label for="not_adapted"><span>&nbsp;否</span></label>
-					</div>
-					<div class="row">
-						<span class="title" style="vertical-align: top;">剧情文本：</span>
-						<textarea class="long_width" name="" id="" cols="30" rows="10" placeholder="请输入剧情文本简介，或者选择一键导入剧情文档">乾隆六年，少女魏璎珞为寻求长姐死亡真相，入紫禁城为宫女。璎珞经过调查，证实姐姐之死与荒唐王爷弘昼有关，立志要讨回公道。富察皇后娴于礼法，担心璎珞走上歧途，竭力给予她温暖与帮助。在皇后的悉心教导下，魏璎珞一步步成长为正直坚强的宫廷女官，并放下怨恨、认真生活。皇后不幸崩逝，令璎珞对乾隆误会重重，二人从互相敌视到最终彼此理解、互相扶持。璎珞凭勇往直前的勇气、机敏灵活的头脑、宽广博大的胸怀，化解宫廷上下的重重困难，最终成为襄助乾隆盛世的令贵妃。
-						</textarea>
-						<a href="javascript:;" class="upload">
-							<input type="file" name="" id="">一键导入Word格式文档
-						</a>
-						<br>
-						<span class="title"></span> <span class="selected_file"><span class="file_name">filename.jpg</span>&nbsp;&nbsp;<span
-							 class="cancel">×</span></span>
-					</div>
-				</div>
-				<a href="./2_crawl_data.html" class="next_step">下一步&nbsp;&nbsp;→</a>
-			</div>
-		</div>
-	</div>
+    <!-- 网络指数 -->
+    <div class="data_label">
+        <div class="v_line"></div>
+        <div class="data_label_name">网络指数</div>
+        <img class="modify_img" src="static/img/modify.svg" class="icon">
+        <button class="modify_label" onclick="modify_network_index()">修改</button>
+    </div>
+    <div class="data_content network_index">
+        <div class="data_item_short_div_label">
+            <label class="data_item_short_div_label_row"></label>
+            <label class="data_item_short_div_label_row">微博指数</label>
+            <label class="data_item_short_div_label_row">微信指数</label>
+            <label class="data_item_short_div_label_row">百度指数</label>
+            <label class="data_item_short_div_label_row">新闻指数</label>
+            <label class="data_item_short_div_label_row">想看数量统计</label>
+        </div>
+        <div class="data_item_short_div_label">
+            <label class="network_index_atr">今日指数值</label>
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+        </div>
+        <div class="data_item_short_div_label">
+            <label class="network_index_atr">近7日均值</label>
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+        </div>
+        <div class="data_item_short_div_label">
+            <label class="network_index_atr">近30日均值</label>
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value" value="---">
+        </div>
+    </div>
+    <!-- 观众留言与评论 -->
+    <div class="data_label">
+        <div class="v_line"></div>
+        <div class="data_label_name_1">观众留言与评论</div>
+    </div>
+    <div class="data_content">
+        <div class="data_item_long_div_label">
+            <label class="data_item_long_div_label_row">微博留言</label>
+            <label class="data_item_long_div_label_row">新闻评论</label>
+            <label class="data_item_long_div_label_row">豆瓣评分</label>
+            <label class="data_item_long_div_label_row">知名影评</label>
+        </div>
+        <div class="data_item_long_div_data comments">
+            <div class="comment_div">
+                <label>微博数量:</label>
+                <input class="comment_input" value="--">
+                <label>条，</label>
+                <label>用户留言:</label>
+                <input class="comment_input" value="--">
+                <label>条</label>
+            </div>
+            <div class="comment_div">
+                <label>新闻数量:</label>
+                <input class="comment_input" value="--">
+                <label>条，</label>
+                <label>用户留言:</label>
+                <input class="comment_input" value="--">
+                <label>条</label>
+            </div>
+            <div class="comment_div">
+                <label>评分:</label>
+                <input class="comment_input" value="--">
+                <label>，评论数量</label>
+                <input class="comment_input" value="--">
+                <label>条</label>
+            </div>
+            <div class="comment_div">
+                <label>作者</label>
+                <input class="comment_input" value="--">
+                <label>位，评论</label>
+                <input class="comment_input" value="--">
+                <label>条</label>
+            </div>
+        </div>
+    </div>
+    <!-- 历史市场表现 -->
+    <div class="data_label">
+        <div class="v_line"></div>
+        <div class="data_label_name_1">历史市场表现</div>
+    </div>
+    <div class="data_content">
+        <div class="data_item_long_div">
+            <div class="data_item_long_div_label">
+                <label class="data_item_long_div_label_row">历史播放信息</label>
+                <label class="data_item_long_div_label_row">历史收视率</label>
+            </div>
+            <div class="data_item_long_div_data performance">
+                <div class="comment_div">
+                    <label>近五日：爱奇艺播放指数均值</label>
+                    <input class="comment_input" value="--">
+                    <label>，优酷视频播放量均值</label>
+                    <input class="comment_input" value="--">
+                    <label>腾讯视频播放量均值</label>
+                    <input class="comment_input" value="--">
+                </div>
+                <div class="comment_div">
+                    <label>近五日总收视率均值:</label>
+                    <input class="comment_input" value="--">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="next_page" onclick="nextpage()">
+        <div>下一步</div>
+        <img id="arrows_img" src="static/img/arrows.svg" class="icon">
+    </div>
+    
+    <div id="page_logo_div">
+        <div id="line_left"></div>
+        <img id="logo_img" src="static/img/logo@2x.png" class="icon">
+        <div id="line_right"></div>
+    </div>
 </body>
-<script src="js/fill_out.js"></script>
-<!-- script放在body上面会先执行 -->
-
-</html>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/P1.js"></script>

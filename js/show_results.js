@@ -595,3 +595,8 @@ $('.explain_att').hover(function(){
 // explain_act_2
 // explain_bg_1
 // explain_bg_2
+
+
+function gotoindex(){
+    window.location.href='./index.html'
+}
