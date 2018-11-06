@@ -1,3 +1,6 @@
+body {
+  margin: 0px;
+}
 .fixed {
   position: fixed;
   top: 0;
@@ -368,7 +371,7 @@ clear {
   color: #4a4a4a;
 }
 .cmt_row {
-  height: 667px;
+  height: 467px;
 }
 .cmt_row .row_item {
   height: 100%;
@@ -383,6 +386,7 @@ clear {
   height: 100%;
 }
 .cmt_row .row_item .cont {
+  text-align: center;
   font-size: 16px;
   font-family: PingFangSC-Regular;
   font-weight: 400;

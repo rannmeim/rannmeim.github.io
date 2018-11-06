@@ -1,23 +1,23 @@
 var data = {
     "index": {
         "news": [
-            32719500, 
+            54401900, 
             52427900, 
             "Null"
         ], 
         "baidu": [
-            4021, 
-            4989.857142857143, 
+            6166, 
+            4989, 
             "Null"
         ], 
         "weixin": [
-            625659, 
-            709842.2857142857, 
+            746537, 
+            709842, 
             "Null"
         ], 
         "weibo": [
-            109185, 
-            191507.42857142858, 
+            100593, 
+            191507, 
             "Null"
         ], 
         "wanted": [
@@ -40,7 +40,7 @@ var data = {
         "制片人": "于正", 
         "播出平台": "翡翠台", 
         "英文名": "Story of Yanxi Palace", 
-        "中文名": "延禧宫略", 
+        "中文名": "延禧攻略", 
         "首播时间": 43300, 
         "类型": "古装、宫廷", 
         "拍摄地区": "中国", 
@@ -77,9 +77,20 @@ var data = {
         ]
     }
 }
-
+var today_weibo=null;
+var today_weixin=null;
+var todya_baidu=null;
+var today_toutiao=null;
+var wanted=null;
+var all_weibo=null;
+var all_weixin=null;
+var all_baidu=null;
+var all_toutiao=null;
 function getData(){
-    if($('#search_input').val() == '延禧攻略'){
+    if(true){
+    // if($('#search_input').val() == '延禧攻略'){
+        today_weibo=100593,today_weixin=746537,todya_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
+        enable_next();
         // 基本属性
         var basic_data = $('.basic_attr input');
         for(var i = 0;i<basic_data.length;i++){
@@ -229,3 +240,59 @@ function load_data_from_json(){
     console.log(data);
     console.log(typeof data);
 }
+
+function enable_next(){
+    $('#next_page').removeAttr('disabled').css('cursor','pointer');
+    $('#next_page').css('background','-webkit-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%)');
+    $('#next_page').css('background','-o-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%)');
+    $('#next_page').css('background','-moz-linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%)');
+    $('#next_page').css('background','linear-gradient(315deg,rgba(78,192,247,1) 0%,rgba(55,123,197,1) 100%)');
+}
+
+$('.network_index input').change(function(){
+    if(today_weibo){
+        if(/(^[1-9]\d*$)/.test(this.value)){
+            if($(this).hasClass('today_weibo')){
+                console.log(all_weibo);
+                console.log(today_weibo);
+                console.log(this.value);
+                all_weibo=all_weibo-today_weibo+Number(this.value);
+                console.log(all_weibo);
+                today_weibo=this.value;
+                console.log(today_weibo);
+                $('.ave_weibo').val(parseInt(all_weibo/7));
+            }
+            if($(this).hasClass('today_weixin')){
+                all_weixin=all_weixin-today_weixin+Number(this.value);
+                today_weixin=this.value;
+                $('.ave_weixin').val(parseInt(all_weixin/7));
+            }
+            if($(this).hasClass('today_baidu')){
+                all_baidu=all_baidu-today_baidu+Number(this.value);
+                today_baidu=this.value;
+                $('.ave_baidu').val(parseInt(all_baidu/7));
+            }
+            if($(this).hasClass('today_toutiao')){
+                all_toutiao=all_toutiao-today_toutiao+Number(this.value);
+                today_toutiao=this.value;
+                $('.ave_toutiao').val(parseInt(all_toutiao/7));
+            }
+            if($(this).hasClass('wanted')){
+                wanted=this.value;
+            }
+            if($(this).hasClass('avg_weibo')){
+                all_weibo=this.value*7;
+                
+            }
+            if($(this).hasClass('avg_weixin')){
+                all_weixin=this.value*7;
+            }
+            if($(this).hasClass('avg_baidu')){
+                all_baidu=this.value*7;
+            }
+            if($(this).hasClass('avg_toutiao')){
+                all_toutiao=this.value*7;
+            }
+        }
+    }
+})

@@ -50,28 +50,24 @@ option = {
             ]
         },
     ],
-    color: ['#60D9F9','#00ff00', '#ff0000', '#00ff00', '#ffffff','#eee',  '#ccc', '#00ff00','#ff0000', '#0000ff', '#00ff00'],
-    // color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
 };
 createEchart('score_radar', option);
 
 
 
 
-var hours = ['12a', '1a', '2a', '3a', '4a', '5a', '6a',
-        '7a', '8a', '9a','10a','11a',
-        '12p', '1p', '2p', '3p', '4p', '5p',
-        '6p', '7p', '8p', '9p', '10p', '11p'];
-var days = ['Sat', 'Fri', 'Thur',
-        'Wed', 'Tues', 'Mon', 'Sun'];
+var months = ['1月','2月', '3月', '4月','5月','6月','7月','8月', '9月','10月','11月', '12月'];
+var cities = ['泰国', '英国', '美国',
+        '大陆', '香港', '韩国', '日本'];
 
-var data = [[0,0,5],[0,1,1],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,0],[0,8,0],[0,9,0],[0,10,0],[0,11,2],[0,12,4],[0,13,1],[0,14,1],[0,15,3],[0,16,4],[0,17,6],[0,18,4],[0,19,4],[0,20,3],[0,21,3],[0,22,2],[0,23,5],[1,0,7],[1,1,0],[1,2,0],[1,3,0],[1,4,0],[1,5,0],[1,6,0],[1,7,0],[1,8,0],[1,9,0],[1,10,5],[1,11,2],[1,12,2],[1,13,6],[1,14,9],[1,15,11],[1,16,6],[1,17,7],[1,18,8],[1,19,12],[1,20,5],[1,21,5],[1,22,7],[1,23,2],[2,0,1],[2,1,1],[2,2,0],[2,3,0],[2,4,0],[2,5,0],[2,6,0],[2,7,0],[2,8,0],[2,9,0],[2,10,3],[2,11,2],[2,12,1],[2,13,9],[2,14,8],[2,15,10],[2,16,6],[2,17,5],[2,18,5],[2,19,5],[2,20,7],[2,21,4],[2,22,2],[2,23,4],[3,0,7],[3,1,3],[3,2,0],[3,3,0],[3,4,0],[3,5,0],[3,6,0],[3,7,0],[3,8,1],[3,9,0],[3,10,5],[3,11,4],[3,12,7],[3,13,14],[3,14,13],[3,15,12],[3,16,9],[3,17,5],[3,18,5],[3,19,10],[3,20,6],[3,21,4],[3,22,4],[3,23,1],[4,0,1],[4,1,3],[4,2,0],[4,3,0],[4,4,0],[4,5,1],[4,6,0],[4,7,0],[4,8,0],[4,9,2],[4,10,4],[4,11,4],[4,12,2],[4,13,4],[4,14,4],[4,15,14],[4,16,12],[4,17,1],[4,18,8],[4,19,5],[4,20,3],[4,21,7],[4,22,3],[4,23,0],[5,0,2],[5,1,1],[5,2,0],[5,3,3],[5,4,0],[5,5,0],[5,6,0],[5,7,0],[5,8,2],[5,9,0],[5,10,4],[5,11,1],[5,12,5],[5,13,10],[5,14,5],[5,15,7],[5,16,11],[5,17,6],[5,18,0],[5,19,5],[5,20,3],[5,21,4],[5,22,2],[5,23,0],[6,0,1],[6,1,0],[6,2,0],[6,3,0],[6,4,0],[6,5,0],[6,6,0],[6,7,0],[6,8,0],[6,9,0],[6,10,1],[6,11,0],[6,12,2],[6,13,1],[6,14,3],[6,15,4],[6,16,0],[6,17,0],[6,18,0],[6,19,0],[6,20,1],[6,21,2],[6,22,2],[6,23,6]];
+var data = [[0,0,1],[0,1,0],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,3],[0,8,0],[0,9,0],[0,10,0],[0,11,2],[1,0,7],[1,1,0],[1,2,0],[1,3,0],[1,4,0],[1,5,0],[1,6,0],[1,7,0],[1,8,0],[1,9,0],[1,10,5],[1,11,2],[2,0,1],[2,1,1],[2,2,0],[2,3,8],[2,4,1],[2,5,3],[2,6,0],[2,7,0],[2,8,0],[2,9,0],[2,10,3],[2,11,2],[3,0,7],[3,1,3],[3,2,7],[3,3,8],[3,4,14],[3,5,9],[3,6,0],[3,7,0],[3,8,1],[3,9,0],[3,10,5],[3,11,4],[4,0,1],[4,1,3],[4,2,0],[4,3,0],[4,4,0],[4,5,1],[4,6,0],[4,7,0],[4,8,0],[4,9,2],[4,10,4],[4,11,4],[5,0,2],[5,1,1],[5,2,0],[5,3,3],[5,4,0],[5,5,0],[5,6,0],[5,7,0],[5,8,2],[5,9,0],[5,10,4],[5,11,1],[6,0,1],[6,1,0],[6,2,0],[6,3,1],[6,4,2],[6,5,3],[6,6,2],[6,7,4],[6,8,5],[6,9,0],[6,10,1],[6,11,0]
+,[1,6,3],[2,6,2],[3,7,5],[3,8,3],[4,6,3]];
 
 data = data.map(function (item) {
     return [item[1], item[0], item[2] || '-'];
 });
 
-option = {
+mkt_heatmap_option = {
     tooltip: {
         position: 'top'
     },
@@ -84,14 +80,14 @@ option = {
     },
     xAxis: {
         type: 'category',
-        data: hours,
+        data: months,
         splitArea: {
             show: true
         }
     },
     yAxis: {
         type: 'category',
-        data: days,
+        data: cities,
         splitArea: {
             show: true
         }
@@ -121,14 +117,18 @@ option = {
         }
     }]
 };
-createEchart('mkt_heatmap', option);
+createEchart('mkt_heatmap', mkt_heatmap_option);
 
-option = {
+invest_scatter_option = {
     xAxis: {
-        scale: true
+        scale: true,
+        name:'投资金额',
+        nameLocation:'middle',
+        nameGap: '30',
     },
     yAxis: {
-        scale: true
+        scale: true,
+        name:'IP热度',
     },
     series: [{
         type: 'effectScatter',
@@ -194,17 +194,17 @@ option = {
         ],
     }]
 };
-createEchart('invest_scatter', option);
+createEchart('invest_scatter', invest_scatter_option);
 
 
-option = {
+invest_pie_option = {
     series : [
         {
             name: '投资去向',
             type: 'pie',
             radius : '55%',
             center: ['40%', '50%'],
-            data: [{name:'演员片酬',value:1},{name:'拍摄花费',value:9}],
+            data: [{name:'人员费用',value:30},{name:'场地费用',value:15},{name:'拍摄费用',value:10},{name:'其他费用',value:45}],
             itemStyle: {
                 emphasis: {
                     shadowBlur: 10,
@@ -215,7 +215,7 @@ option = {
         }
     ]
 };
-createEchart('invest_pie', option);
+createEchart('invest_pie', invest_pie_option);
 
 option = {
     tooltip: {},
@@ -325,7 +325,7 @@ option = {
 createEchart('actors_graph', option);
 
 
-option = {    
+mkt_adapt_bar_option = {    
     // title : {
     //     text: '近年不同电视剧题材的平均播放量',
     //     position:'center',
@@ -340,8 +340,9 @@ option = {
     ],
     yAxis : [
         {
-            type : 'value'
-        }
+            type : 'value',
+            name: 'IP热度',
+        },
     ],
     series : [
         {
@@ -362,15 +363,15 @@ option = {
         },
     ]
 };
-createEchart('mkt_adapt_bar', option);
+createEchart('mkt_adapt_bar', mkt_adapt_bar_option);
 
 
-option = {
+hst_play_line_option = {
     grid:{
         left: '18%',
     },
     legend: {
-        data:['优酷播放量','爱奇艺播放量','总播放量']
+        data:['优酷视频播放量','腾讯视频播放量','爱奇艺播放指数']
     },
     xAxis: {
         type: 'category',
@@ -380,20 +381,20 @@ option = {
         type: 'value'
     },
     series: [{
-        name: '优酷播放量',
+        name: '优酷视频播放量',
         data: [4820, 4932, 4901, 5434, 4290, 5330, 4320],
         type: 'line'
     },{
-        name: '爱奇艺播放量',
-        data: [4120, 4032, 4301, 4434, 3890, 3330, 3620],
+        name: '腾讯视频播放量',
+        data: [6820, 6932, 6901, 7434, 7290, 6330, 6720],
         type: 'line'
     },{
-        name: '总播放量',
-        data: [6820, 6932, 6901, 7434, 7290, 6330, 6720],
+        name: '爱奇艺播放指数',
+        data: [4120, 4032, 4301, 4434, 3890, 3330, 3620],
         type: 'line'
     }]
 };
-createEchart('hst_play_line', option);
+createEchart('hst_play_line', hst_play_line_option);
 
 option = {
     legend: {
@@ -416,15 +417,24 @@ createEchart('hst_watch_line', option);
 
 
 
-
-option = {
+var posi_value = null;
+var neu_value = null;
+var nega_value = null;
+cmt_pie_option = {
+    legend: {
+        left: 'left',
+        data: ['正面情绪','中等','负面情绪']
+    },
+    grid:{
+        left:'left',
+    },
     series : [
         {
-            name: '投资去向',
+            name: '情感分析结果',
             type: 'pie',
             radius : '55%',
             center: ['40%', '50%'],
-            data: [{name:'演员片酬',value:1},{name:'拍摄花费',value:9}],
+            data: [{name:'正面情绪',value:posi_value},{name:'中等',value:neu_value},{name:'负面情绪',value:nega_value}],
             itemStyle: {
                 emphasis: {
                     shadowBlur: 10,
@@ -435,16 +445,34 @@ option = {
         }
     ]
 };
-createEchart('cmt_weibo_pie', option);
-createEchart('cmt_news_pie', option);
-createEchart('cmt_douban_pie', option);
-createEchart('film_critics_pie', option);
+cmt_pie_option.series[0].data[0].value=5,
+cmt_pie_option.series[0].data[1].value=1,
+cmt_pie_option.series[0].data[2].value=4,
+createEchart('cmt_weibo_pie', cmt_pie_option);
+cmt_pie_option.series[0].data[0].value=5,
+cmt_pie_option.series[0].data[1].value=2,
+cmt_pie_option.series[0].data[2].value=3,
+createEchart('cmt_news_pie', cmt_pie_option);
+cmt_pie_option.series[0].data[0].value=4,
+cmt_pie_option.series[0].data[1].value=2,
+cmt_pie_option.series[0].data[2].value=4,
+createEchart('cmt_douban_pie', cmt_pie_option);
+cmt_pie_option.series[0].data[0].value=5.5,
+cmt_pie_option.series[0].data[1].value=1,
+cmt_pie_option.series[0].data[2].value=3.5,
+createEchart('film_critics_pie', cmt_pie_option);
 
 
 
-option = {
+weibo_index = [100593, 77731, 130989, 325612, 516113, 80329, 109185]
+weixin_index = [746537, 627192, 612762, 897110, 783765, 675871, 625659]
+baidu_index = [6166, 5314, 4963, 4696, 5024, 4745, 4021]
+wanted_index = [70095]
+toutiao_index = [54401.9*10**3, 74318.3*10**3, 72181.7*10**3, 41963.9*10**3, 38761.6*10**3, 52648.4*10**3, 32719.5*10**3]
+
+msg_line_option = {
     legend: {
-        data:['微博数','二次转发数','评论数','点赞数']
+        data:['微博指数']
     },
     grid:{
         left: '18%',
@@ -452,136 +480,35 @@ option = {
     },
     xAxis: {
         type: 'category',
-        data: ['15', '16', '17', '18', '19']
+        data: ['1号', '2号', '3号', '4号', '5号','6号','7号']
     },
     yAxis: {
         type: 'value'
     },
     series: [{
-        name: '微博数',
-        data: [520, 532, 501, 534, 490],
+        name: '微博指数',
+        data: weibo_index,
         type: 'line'
-    },{
-        name: '二次转发数',
-        data: [420, 432, 401, 404, 390],
-        // data: [120, 332, 301, 434, 490, 330, 620],
-        type: 'line'
-    },{
-        name: '评论数',
-        data: [320, 332, 301, 294, 320],
-        // data: [520, 532, 601, 334, 490, 430, 620],
-        type: 'line'
-    },{
-        name: '点赞数',
-        data: [430, 452, 451, 414, 450],
-        // data: [820, 932, 901, 434, 490, 530, 620],
-        type: 'line'
-    }]
+    },]
 };
-createEchart('msg_weibo_line', option);
-option = {
-    legend: {
-        data:['文章数量','阅读数量','微信搜索数量']
-    },
-    grid:{
-        left: '18%',
-        height: '60%'
-    },
-    xAxis: {
-        type: 'category',
-        data: ['15', '16', '17', '18', '19']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        name: '文章数量',
-        data: [520, 532, 501, 534, 490],
-        type: 'line'
-    },{
-        name: '阅读数量',
-        data: [420, 432, 401, 404, 390],
-        // data: [120, 332, 301, 434, 490, 330, 620],
-        type: 'line'
-    },{
-        name: '微信搜索数量',
-        data: [320, 332, 301, 294, 320],
-        // data: [520, 532, 601, 334, 490, 430, 620],
-        type: 'line'
-    }]
-};
-createEchart('msg_wechat_line', option);
-option = {
-    legend: {
-        data:['新闻报道数量','新闻评论数量']
-    },
-    grid:{
-        left: '18%',
-        height: '60%'
-    },
-    xAxis: {
-        type: 'category',
-        data: ['15', '16', '17', '18', '19']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        name: '新闻报道数量',
-        data: [520, 532, 501, 534, 490],
-        type: 'line'
-    },{
-        name: '新闻评论数量',
-        data: [420, 432, 401, 404, 390],
-        // data: [120, 332, 301, 434, 490, 330, 620],
-        type: 'line'
-    }]
-};
-createEchart('msg_news_line', option);
-option = {
-    legend: {
-        data:['百度关键词搜索指数']
-    },
-    grid:{
-        left: '18%',
-        height: '60%'
-    },
-    xAxis: {
-        type: 'category',
-        data: ['15', '16', '17', '18', '19']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        name: '百度关键词搜索指数',
-        data: [520, 532, 501, 534, 490],
-        type: 'line'
-    }]
-};
-createEchart('msg_baidu_line', option);
-option = {
-    legend: {
-        data:['平台想看数量统计']
-    },
-    grid:{
-        left: '18%',
-        height: '60%'
-    },
-    xAxis: {
-        type: 'category',
-        data: ['15', '16', '17', '18', '19']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        name: '平台想看数量统计',
-        data: [520, 532, 501, 534, 490],
-        type: 'line'
-    }]
-};
-createEchart('msg_wish_line', option);
+createEchart('msg_weibo_line', msg_line_option);
+msg_line_option.legend.data=['微信指数'];
+msg_line_option.series[0].name=['微信指数'];
+msg_line_option.series[0].data=weixin_index;
+createEchart('msg_wechat_line', msg_line_option);
+msg_line_option.legend.data=['头条指数'];
+msg_line_option.series[0].name=['头条指数'];
+msg_line_option.series[0].data=toutiao_index;
+createEchart('msg_toutiao_line', msg_line_option);
+msg_line_option.legend.data=['百度关键词搜索指数'];
+msg_line_option.series[0].name=['百度关键词搜索指数'];
+msg_line_option.series[0].data=baidu_index;
+createEchart('msg_baidu_line', msg_line_option);
+msg_line_option.legend.data=['想看数量统计'];
+msg_line_option.xAxis.data=['7号'];
+msg_line_option.series[0].name=['想看数量统计'];
+msg_line_option.series[0].data=wanted_index;
+createEchart('msg_wish_line', msg_line_option);
 
 
 

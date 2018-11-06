@@ -15,7 +15,6 @@
             <div id="search_input_div">
                 <img id="search_img" src="static/img/search.svg" alt="" class="icon">
                 <input type="text" name="" id="search_input" placeholder="请输入IP名称">
-                <!-- <input type="text" name="" id="search_input" onfocus="javascript:if(this.value=='请输入IP名称')this.value='';"> -->
             </div><button id="get_data_btn" onclick="getData();">获 取 数 据</button>
             <img id="batch_upload_img" src="static/img/batch_upload.svg" class="icon">
             <button id="batch_upload_btn">批量导入</button>
@@ -105,23 +104,23 @@
             <label class="data_item_short_div_label_row">微博指数</label>
             <label class="data_item_short_div_label_row">微信指数</label>
             <label class="data_item_short_div_label_row">百度指数</label>
-            <label class="data_item_short_div_label_row">新闻指数</label>
+            <label class="data_item_short_div_label_row">头条指数</label>
             <label class="data_item_short_div_label_row">想看数量统计</label>
         </div>
         <div class="data_item_short_div_label">
             <label class="network_index_atr">今日指数值</label>
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value today_weibo" value="---">
+            <input type="text" class="network_index_value today_weixin" value="---">
+            <input type="text" class="network_index_value today_baidu" value="---">
+            <input type="text" class="network_index_value today_toutiao" value="---">
+            <input type="text" class="network_index_value wanted" value="---">
         </div>
         <div class="data_item_short_div_label">
             <label class="network_index_atr">近7日均值</label>
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
-            <input type="text" class="network_index_value" value="---">
+            <input type="text" class="network_index_value ave_weibo" value="---">
+            <input type="text" class="network_index_value ave_weixin" value="---">
+            <input type="text" class="network_index_value ave_baidu" value="---">
+            <input type="text" class="network_index_value ave_toutiao" value="---">
             <input type="text" class="network_index_value" value="---">
         </div>
         <div class="data_item_short_div_label">
@@ -147,7 +146,7 @@
         </div>
         <div class="data_item_long_div_data comments">
             <div class="comment_div">
-                <label>微博数量:</label>
+                <label>官微数量:</label>
                 <input class="comment_input" value="--">
                 <label>条，</label>
                 <label>用户留言:</label>
@@ -165,14 +164,14 @@
             <div class="comment_div">
                 <label>评分:</label>
                 <input class="comment_input" value="--">
-                <label>，评论数量</label>
+                <label>，评论数量:</label>
                 <input class="comment_input" value="--">
                 <label>条</label>
             </div>
             <div class="comment_div">
-                <label>作者</label>
+                <label>作者:</label>
                 <input class="comment_input" value="--">
-                <label>位，评论</label>
+                <label>位，评论:</label>
                 <input class="comment_input" value="--">
                 <label>条</label>
             </div>
@@ -195,7 +194,7 @@
                     <input class="comment_input" value="--">
                     <label>，优酷视频播放量均值</label>
                     <input class="comment_input" value="--">
-                    <label>腾讯视频播放量均值</label>
+                    <label>，腾讯视频播放量均值</label>
                     <input class="comment_input" value="--">
                 </div>
                 <div class="comment_div">
@@ -206,10 +205,7 @@
         </div>
     </div>
     
-    <div id="next_page" onclick="nextpage()">
-        <div>下一步</div>
-        <img id="arrows_img" src="static/img/arrows.svg" class="icon">
-    </div>
+    <button id="next_page" onclick="nextpage()" disabled=true>下一步 →</button>
     
     <div id="page_logo_div">
         <div id="line_left"></div>

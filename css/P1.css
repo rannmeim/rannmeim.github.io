@@ -241,7 +241,7 @@ input.data_item_input {
   margin-left: 20px;
 }
 input.data_item_short_div_data_row {
-  width: 100%px;
+  width: 100%;
   height: 22px;
   display: block;
   font-size: 16px;
@@ -343,32 +343,23 @@ input.data_item_short_div_data_row {
   color: #4a4a4a;
   border-width: 0px;
   text-align: center;
-  width: 50px;
+  width: 60px;
   vertical-align: top;
 }
 #next_page {
-  cursor: pointer;
-  background: linear-gradient(270deg, #417cc3 0%, #35b7f7 100%);
+  outline: none;
+  line-height: 40px;
+  text-align: center;
+  border: 0px;
+  font-size: 18px;
+  font-family: PingFangSC-Medium;
+  color: white;
+  background: #9B9B9B;
   width: 265px;
   height: 60px;
   border-radius: 40px;
   margin-left: 587px;
   padding-top: 10px;
-}
-#next_page > div {
-  display: inline-block;
-  font-size: 20px;
-  font-family: PingFangSC-Regular;
-  font-weight: 400;
-  color: #ffffff;
-  margin-top: 10px;
-  margin-left: 85px;
-}
-#arrows_img {
-  height: 40px;
-  transform: rotate(90deg);
-  vertical-align: top;
-  margin-top: 3px;
 }
 #page_logo_div {
   width: 1240px;
