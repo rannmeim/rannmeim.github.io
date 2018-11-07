@@ -87,12 +87,17 @@ var all_weixin=null;
 var all_baidu=null;
 var all_toutiao=null;
 
+$('#search_input').keydown(function(e){
+    if(e.keyCode==13){
+        getData(true);
+    }
+})
 !function(){
     if($('.basic_attr input')[0].value){
-        getData();
+        getData(false);
     }
 }()
-function getData(){
+function getData(flag){
     // if(true){
     if($('#search_input').val() == '延禧攻略'){
         today_weibo=100593,today_weixin=746537,today_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
@@ -185,7 +190,7 @@ function getData(){
                 $(d).val(data['performence']['online'][i]);
             }
         }
-    }else{
+    }else if(flag){
         alert('暂无此IP信息！')
     }
 }
