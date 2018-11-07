@@ -1,8 +1,42 @@
 $('.nav_bg').height(screen.availHeight);
 $('.nav').height(screen.availHeight);
-// $('.cover_row .row_item:nth-of-type(3)').height($('.cover_row img').width()*0.93 - 50)
 
-// todo 根据屏幕高度自动调节nav
+var test='test123';
+
+// var today_weibo=null;
+// var today_weixin=null;
+// var today_baidu=null;
+// var today_toutiao=null;
+// var wanted=null;
+// var all_weibo=null;
+// var all_weixin=null;
+// var all_baidu=null;
+// var all_toutiao=null;
+
+//获取地址栏参数 返回数组
+!function getPara(){
+    var arr=[];
+    var str=location.href;
+    var num=str.indexOf('?');
+    if (num==-1) {
+        return;
+    }
+    str=str.substr(num+1);
+    arr=str.split('&');
+    for(var i=0;i<arr.length;i++){
+        num=arr[i].indexOf('=');
+        if (num>0) {
+            name=arr[i].substring(0,num);
+            value=arr[i].substr(num+1);
+            this[name]=value;
+        }
+    }
+}()
+
+
+
+
+
 
 function createEchart(id, option){
     var myChart = echarts.init(document.getElementById(id), 'light');
@@ -334,7 +368,6 @@ mkt_adapt_bar_option = {
     xAxis : [
         {
             type : 'category',
-            // data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
             data : ['古装','武侠','家庭','都市','战争','谍战','罪案','宫廷','神话','年代','商战','奇幻']
         }
     ],
@@ -463,19 +496,63 @@ cmt_pie_option.series[0].data[2].value=3.5,
 createEchart('film_critics_pie', cmt_pie_option);
 
 
-
 weibo_index = [100593, 77731, 130989, 325612, 516113, 80329, 109185]
 weixin_index = [746537, 627192, 612762, 897110, 783765, 675871, 625659]
 baidu_index = [6166, 5314, 4963, 4696, 5024, 4745, 4021]
-wanted_index = [70095]
 toutiao_index = [54401.9*10**3, 74318.3*10**3, 72181.7*10**3, 41963.9*10**3, 38761.6*10**3, 52648.4*10**3, 32719.5*10**3]
+wanted_index = [70095]
+old_all_weibo = 1340552;
+old_all_weixin = 4968896;
+old_all_baidu = 34929;
+old_all_toutiao = 366995300;
+
+
+!function getData(){
+    wanted_index[0]=Number(window.wanted)/10000; //万
+
+    d = parseInt((Number(window.all_weibo) - Number(window.today_weibo) - old_all_weibo + weibo_index[0])/6);
+    weibo_index = weibo_index.map(function(x){
+        return x+d;
+    });
+    weibo_index[0] = Number(window.today_weibo);
+    weibo_index = weibo_index.map(function(x){
+        return x/10000;   //万
+    })
+
+    d = parseInt((Number(window.all_weixin) - Number(window.today_weixin) - old_all_weixin + weixin_index[0])/6);
+    weixin_index = weixin_index.map(function(x){
+        return x+d;
+    });
+    weixin_index[0] = Number(window.today_weixin);
+    weixin_index = weixin_index.map(function(x){
+        return x/10000;//万
+    })
+
+    d = parseInt((Number(window.all_baidu) - Number(window.today_baidu) - old_all_baidu + baidu_index[0])/6);
+    baidu_index = baidu_index.map(function(x){
+        return x+d;
+    });
+    baidu_index[0] = Number(window.today_baidu);
+    baidu_index = baidu_index.map(function(x){
+        return x/1000; //千
+    })
+
+    d = parseInt((Number(window.all_toutiao) - Number(window.today_toutiao) - old_all_toutiao + toutiao_index[0])/6);
+    toutiao_index = toutiao_index.map(function(x){
+        return x+d;
+    });
+    toutiao_index[0] = Number(window.today_toutiao);
+    toutiao_index = toutiao_index.map(function(x){
+        return x/1000000;//百万
+    })
+}()
 
 msg_line_option = {
     legend: {
         data:['微博指数']
     },
     grid:{
-        left: '18%',
+        left: '16%',
         height: '60%'
     },
     xAxis: {
@@ -483,7 +560,9 @@ msg_line_option = {
         data: ['1号', '2号', '3号', '4号', '5号','6号','7号']
     },
     yAxis: {
-        type: 'value'
+        type: 'value',
+        name:'万',
+        nameGap: 10,
     },
     series: [{
         name: '微博指数',
@@ -497,24 +576,62 @@ msg_line_option.series[0].name=['微信指数'];
 msg_line_option.series[0].data=weixin_index;
 createEchart('msg_wechat_line', msg_line_option);
 msg_line_option.legend.data=['头条指数'];
+msg_line_option.yAxis.name=['百万'];
 msg_line_option.series[0].name=['头条指数'];
 msg_line_option.series[0].data=toutiao_index;
 createEchart('msg_toutiao_line', msg_line_option);
 msg_line_option.legend.data=['百度关键词搜索指数'];
+msg_line_option.yAxis.name=['千'];
 msg_line_option.series[0].name=['百度关键词搜索指数'];
 msg_line_option.series[0].data=baidu_index;
 createEchart('msg_baidu_line', msg_line_option);
 msg_line_option.legend.data=['想看数量统计'];
+msg_line_option.yAxis.name=['万'];
 msg_line_option.xAxis.data=['7号'];
 msg_line_option.series[0].name=['想看数量统计'];
 msg_line_option.series[0].data=wanted_index;
 createEchart('msg_wish_line', msg_line_option);
 
+function count_weibo_score(x){
+    console.log(x);
+    t = (x-5*10**4)*10**(-5);
+    console.log(t);
+    r = 10/(1+Math.exp(-t));
+    console.log(r);
+    return r.toFixed(1);
+}
+function count_weixin_score(x){
+    t = (x-5.5*10**5)*10**(-5);
+    r = 10/(1+Math.exp(-t));
+    return r.toFixed(1);
+}
+function count_toutiao_score(x){
+    t = (x-3*10**7)*5*10**(-8);
+    r = 10/(1+Math.exp(-t));
+    return r.toFixed(1);
+}
+function count_baidu_score(x){
+    t = (x-3500)*10**(-3);
+    r = 10/(1+Math.exp(-t));
+    return r.toFixed(1);
+}
+function count_wanted_score(x){
+    t = (x-6*10**4)*10**(-4);
+    r = 10/(1+Math.exp(-t));
+    return r.toFixed(1);
+}
+
+$('.weibo_score').text(count_weibo_score(parseInt(all_weibo/7)));
+$('.weixin_score').text(count_weixin_score(parseInt(all_weixin/7)));
+$('.toutiao_score').text(count_toutiao_score(parseInt(all_toutiao/7)));
+$('.baidu_score').text(count_baidu_score(parseInt(all_baidu/7)));
+$('.wanted_score').text(count_wanted_score(parseInt(wanted)));
 
 
-$('.explain_att').hover(function(){
 
-})
+// $('.explain_att').hover(function(){
+
+// })
 // explain_cmt
 // explain_hst
 // explain_cont
@@ -527,3 +644,4 @@ $('.explain_att').hover(function(){
 function gotoindex(){
     window.location.href='./index.html'
 }
+

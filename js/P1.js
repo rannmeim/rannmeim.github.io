@@ -79,7 +79,7 @@ var data = {
 }
 var today_weibo=null;
 var today_weixin=null;
-var todya_baidu=null;
+var today_baidu=123;
 var today_toutiao=null;
 var wanted=null;
 var all_weibo=null;
@@ -89,7 +89,7 @@ var all_toutiao=null;
 function getData(){
     if(true){
     // if($('#search_input').val() == '延禧攻略'){
-        today_weibo=100593,today_weixin=746537,todya_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
+        today_weibo=100593,today_weixin=746537,today_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
         enable_next();
         // 基本属性
         var basic_data = $('.basic_attr input');
@@ -204,7 +204,9 @@ function modify_network_index(){
     });
 }
 function nextpage(){
-    window.location.href='./3_show_results.html'
+    var h = './3_show_results.html?today_weibo='+today_weibo+'&today_weixin='+today_weixin+'&today_baidu='+today_baidu+'&today_toutiao='+today_toutiao+'&wanted='+
+    wanted+'&all_weibo='+all_weibo+'&all_weixin='+all_weixin+'&all_baidu='+all_baidu+'&all_toutiao='+all_toutiao;
+    window.location.href=h;    
 }
 !function init(){
     set_select_all();
@@ -212,34 +214,6 @@ function nextpage(){
 }()
 
 
-
-
-
-
-
-// function load_data_from_excel(){
-
-// }
-function load_data_from_json(){
-    // $.getJSON('../data/data.json',function(data){
-    //     console.log(data);
-    //     console.log(typeof data);
-    // })
-
-    // $.ajax({
-    //     type:'get',
-    //     dataType:'json',
-    //     url: "data/data.txt",
-    //     success: function (data) {
-    //         console.log(data);
-    //         console.log(typeof data);
-    //         // ipAddress = data.ip;
-    //     }
-    // });
-
-    console.log(data);
-    console.log(typeof data);
-}
 
 function enable_next(){
     $('#next_page').removeAttr('disabled').css('cursor','pointer');
@@ -253,13 +227,8 @@ $('.network_index input').change(function(){
     if(today_weibo){
         if(/(^[1-9]\d*$)/.test(this.value)){
             if($(this).hasClass('today_weibo')){
-                console.log(all_weibo);
-                console.log(today_weibo);
-                console.log(this.value);
                 all_weibo=all_weibo-today_weibo+Number(this.value);
-                console.log(all_weibo);
                 today_weibo=this.value;
-                console.log(today_weibo);
                 $('.ave_weibo').val(parseInt(all_weibo/7));
             }
             if($(this).hasClass('today_weixin')){
@@ -280,18 +249,17 @@ $('.network_index input').change(function(){
             if($(this).hasClass('wanted')){
                 wanted=this.value;
             }
-            if($(this).hasClass('avg_weibo')){
-                all_weibo=this.value*7;
-                
+            if($(this).hasClass('ave_weibo')){
+                all_weibo=Number(this.value)*7;                
             }
-            if($(this).hasClass('avg_weixin')){
-                all_weixin=this.value*7;
+            if($(this).hasClass('ave_weixin')){
+                all_weixin=Number(this.value)*7;         
             }
-            if($(this).hasClass('avg_baidu')){
-                all_baidu=this.value*7;
+            if($(this).hasClass('ave_baidu')){
+                all_baidu=Number(this.value)*7;         
             }
-            if($(this).hasClass('avg_toutiao')){
-                all_toutiao=this.value*7;
+            if($(this).hasClass('ave_toutiao')){
+                all_toutiao=Number(this.value)*7;         
             }
         }
     }
