@@ -111,6 +111,9 @@ mkt_heatmap_option = {
 createEchart('mkt_heatmap', mkt_heatmap_option);
 
 invest_scatter_option = {
+    tooltip:{
+
+    },
     title:{
         text: '投资金额与播放量分布图',
         textStyle:{
@@ -223,10 +226,10 @@ option = {
     animationEasingUpdate: 'quinticInOut',
     legend: {
             data: [{
-    name: '导演',
-},{
-    name:'演员',
-}]
+                name: '导演',
+            },{
+                name:'演员',
+            }]
         },
     series : [
         {   
@@ -385,10 +388,17 @@ createEchart('actors_graph', option);
 
 
 mkt_adapt_bar_option = {    
-    // title : {
-    //     text: '近年不同电视剧题材的平均播放量',
-    //     position:'center',
-    // },
+    title:{
+        text: '近年不同电视剧题材的平均播放量',
+        textStyle:{
+            color: '#4a4a4a',
+            fontSize:14,
+        },
+        left: 230,
+    },
+    tooltip:{
+
+    },
     calculable : true,
     xAxis : [
         {
@@ -404,7 +414,7 @@ mkt_adapt_bar_option = {
     ],
     series : [
         {
-            name:'蒸发量',
+            name:'播放量',
             type:'bar',
             data:[25, 30, 70, 46, 36, 76, 92, 73, 32, 20, 64, 33],
             markPoint : {
