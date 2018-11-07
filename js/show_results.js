@@ -672,7 +672,7 @@ $('.wanted_score').text(t);
 att_score = (att_score/5).toFixed(1);
 
 
-all_scores = [8,8.5,9,9,9,9];
+all_scores = [8,8.5,8.3,8.6,8.6,7.5];
 all_scores[3] = Number(att_score);
 score_radar_option = {
     // title: {

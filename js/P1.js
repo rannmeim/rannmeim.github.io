@@ -50,12 +50,12 @@ var data = {
     }, 
     "performence": {
         "online": [
-            20000, 
-            20000, 
-            15000
+            20321, 
+            25030, 
+            15901
         ], 
         "tv": [
-            5000
+            5910
         ]
     }, 
     "comment": {
@@ -79,7 +79,7 @@ var data = {
 }
 var today_weibo=null;
 var today_weixin=null;
-var today_baidu=123;
+var today_baidu=null;
 var today_toutiao=null;
 var wanted=null;
 var all_weibo=null;
@@ -93,13 +93,15 @@ $('#search_input').keydown(function(e){
     }
 })
 !function(){
-    if($('.basic_attr input')[0].value){
-        getData(false);
+    if($('.basic_attr input')[0].value != '---'){
+        today_weibo=100593,today_weixin=746537,today_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
+        enable_next();
     }
 }()
 function getData(flag){
-    // if(true){
-    if($('#search_input').val() == '延禧攻略'){
+    // test
+    if(true){
+    // if($('#search_input').val() == '延禧攻略'){
         today_weibo=100593,today_weixin=746537,today_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
         enable_next();
         // 基本属性
