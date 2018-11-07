@@ -564,6 +564,24 @@ old_all_toutiao = 366995300;
     })
 }()
 
+var m_31 = [1,3,5,7,8,10,12];
+var date = [];
+var myDate = new Date();
+var dt = myDate.getDate();
+var mth = myDate.getDate();
+for(let i=0;i<7;i++){
+    if(dt<0){
+        if(mth-1 == 2){
+            dt=28;
+        }else if(m_31.indexOf(mth-1) != -1){
+            dt=31;
+        }else{
+            dt=30;
+        }
+    }
+    date.unshift(dt+'号');
+    dt-=1;
+}
 msg_line_option = {
     legend: {
         data:['微博指数']
@@ -574,7 +592,8 @@ msg_line_option = {
     },
     xAxis: {
         type: 'category',
-        data: ['1号', '2号', '3号', '4号', '5号','6号','7号']
+        data: date,
+        // data: ['1号', '2号', '3号', '4号', '5号','6号','7号']
     },
     yAxis: {
         type: 'value',

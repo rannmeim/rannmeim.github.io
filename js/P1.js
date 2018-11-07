@@ -41,7 +41,7 @@ var data = {
         "播出平台": "翡翠台", 
         "英文名": "Story of Yanxi Palace", 
         "中文名": "延禧攻略", 
-        "首播时间": 43300, 
+        "首播时间": '2018年7月', 
         "类型": "古装、宫廷", 
         "拍摄地区": "中国", 
         "编剧": "周末", 
@@ -86,9 +86,15 @@ var all_weibo=null;
 var all_weixin=null;
 var all_baidu=null;
 var all_toutiao=null;
+
+!function(){
+    if($('.basic_attr input')[0].value){
+        enable_next();
+    }
+}()
 function getData(){
-    if(true){
-    // if($('#search_input').val() == '延禧攻略'){
+    // if(true){
+    if($('#search_input').val() == '延禧攻略'){
         today_weibo=100593,today_weixin=746537,today_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
         enable_next();
         // 基本属性
