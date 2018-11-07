@@ -240,6 +240,9 @@ option = {
             return x.data.intro;
         },
     },
+    grid:{
+        position:'bottom'
+    },
     animationDurationUpdate: 1500,
     animationEasingUpdate: 'quinticInOut',
     legend: {
@@ -251,6 +254,19 @@ option = {
         },
     series : [
         {   
+            edgeLabel:{
+                normal: {
+                    show: true,
+                    // formatter:'{a},{b},{c}', 
+                    formatter: function (x) {
+                        if(x.data.rel){
+                            return x.data.rel;
+                        }else{
+                            return ''
+                        }
+                    } 
+                },
+            },
             categories:[{
                 name: '导演',
             },{
@@ -267,13 +283,6 @@ option = {
             },
             // edgeSymbol: ['circle'],
             // edgeSymbolSize: [4, 10],
-            edgeLabel: {
-                normal: {
-                    textStyle: {
-                        fontSize: 20
-                    }
-                }
-            },
             data: [{
                 name: '吴谨言',
                 x: 300,
@@ -362,6 +371,7 @@ option = {
                         curveness: -0.1
                     }
                 }
+                
             }, {
                 source: 4,
                 target: 2,
@@ -397,7 +407,9 @@ option = {
                         // width: 5,
                         curveness: -0.2
                     }
-                }
+                },
+                rel:'《烈火军校》系统评分8.1'
+                // rel:'《烈火军校》\n系统评分8.1'
             }],
             lineStyle: {
                 normal: {
