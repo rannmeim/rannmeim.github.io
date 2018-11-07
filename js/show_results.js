@@ -193,9 +193,9 @@ invest_pie_option = {
         {
             name: '投资去向',
             type: 'pie',
-            radius : '55%',
+            radius : '45%',
             center: ['40%', '50%'],
-            data: [{name:'人员费用',value:30},{name:'场地费用',value:15},{name:'拍摄费用',value:10},{name:'其他费用',value:45}],
+            data: [{name:'人员费用',value:30},{name:'场地费用',value:15},{name:'拍摄费用',value:10},{name:'其他',value:45}],
             itemStyle: {
                 emphasis: {
                     shadowBlur: 10,
