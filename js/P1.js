@@ -89,7 +89,7 @@ var all_toutiao=null;
 
 !function(){
     if($('.basic_attr input')[0].value){
-        enable_next();
+        getData();
     }
 }()
 function getData(){
