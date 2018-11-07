@@ -42,50 +42,7 @@ function createEchart(id, option){
     var myChart = echarts.init(document.getElementById(id), 'light');
     myChart.setOption(option, true);
 }
-option = {
-    // title: {
-    //     text: '总评分'
-    // },
-    tooltip: {
-        trigger: 'axis'
-    },
-    radar: [
-        {
-            indicator: [
-                {text: '制作班底与演员', max: 10},
-                {text: '背景实力', max: 10},
-                {text: '内容质量', max: 10},
-                {text: '潮流与关注程度', max: 10},
-                {text: '用户评价', max: 10},
-                {text: '历史表现', max: 10}
-            ],
-            center: ['50%','50%'],
-            radius: 50
-        },
-    ],
-    textStyle: {
-        color: '#fff',
-    },
-    series: [
-        {
-            type: 'radar',
-             tooltip: {
-                trigger: 'item'
-            },
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            areaStyle:{
-                shadowColor: '#0000ff',
-            },
-            data: [
-                {
-                    value: [8,8.5,9,9,9,9],
-                    name: '延禧攻略'
-                }
-            ]
-        },
-    ],
-};
-createEchart('score_radar', option);
+
 
 
 
@@ -251,12 +208,26 @@ invest_pie_option = {
 };
 createEchart('invest_pie', invest_pie_option);
 
+
 option = {
     tooltip: {},
     animationDurationUpdate: 1500,
     animationEasingUpdate: 'quinticInOut',
+    legend: {
+            data: [{
+    name: '导演',
+},{
+    name:'演员',
+}]
+        },
     series : [
-        {   focusNodeAdjacency:true,
+        {   
+            categories:[{
+                name: '导演',
+            },{
+                name:'演员',
+            }],
+            focusNodeAdjacency:true,
             type: 'graph',
             layout: 'none',
             symbolSize: 50,
@@ -277,20 +248,39 @@ option = {
             data: [{
                 name: '吴谨言',
                 x: 300,
-                y: 200
+                y: 200,
+                category:'演员',
             }, {
                 name: '许凯',
                 x: 800,
-                y: 200
+                y: 200,
+                category:'演员',
             }, {
                 name: '佘诗曼',
-                x: 550,
-                y: 0
+                x: 450,
+                y: 0,
+                category:'演员',
+            }, {
+                name: '秦岚',
+                x: 650,
+                y: 0,
+                category:'演员',
             }, {
                 name: '惠楷栋',
                 x: 550,
-                y: 300
-            }],
+                y: 300,
+                category:'导演',
+            },{
+                name: '聂远',
+                x: 800,
+                y: 80,
+                category:'演员',
+            },{
+                name: '王冠逸',
+                x: 300,
+                y: 80,
+                category:'演员',
+            },],
             // links: [],
             links: [{
                 source: 0,
@@ -337,8 +327,35 @@ option = {
                     }
                 }
             }, {
-                source: 1,
+                source: 4,
                 target: 2,
+                lineStyle: {
+                    normal: {
+                        // width: 5,
+                        curveness: -0.2
+                    }
+                }
+            },  {
+                source: 4,
+                target: 6,
+                lineStyle: {
+                    normal: {
+                        // width: 5,
+                        curveness: 0.2
+                    }
+                }
+            },{
+                source: 3,
+                target: 5,
+                lineStyle: {
+                    normal: {
+                        // width: 5,
+                        curveness: 0.2
+                    }
+                }
+            }, {
+                source: 1,
+                target: 4,
                 lineStyle: {
                     normal: {
                         // width: 5,
@@ -592,12 +609,10 @@ msg_line_option.series[0].name=['想看数量统计'];
 msg_line_option.series[0].data=wanted_index;
 createEchart('msg_wish_line', msg_line_option);
 
+var att_score = 0;
 function count_weibo_score(x){
-    console.log(x);
     t = (x-5*10**4)*10**(-5);
-    console.log(t);
     r = 10/(1+Math.exp(-t));
-    console.log(r);
     return r.toFixed(1);
 }
 function count_weixin_score(x){
@@ -620,14 +635,76 @@ function count_wanted_score(x){
     r = 10/(1+Math.exp(-t));
     return r.toFixed(1);
 }
+t = count_weibo_score(parseInt(all_weibo/7));
+att_score += Number(t);
+$('.weibo_score').text(t);
+t = count_weixin_score(parseInt(all_weixin/7));
+att_score += Number(t);
+$('.weixin_score').text(t);
+t = count_toutiao_score(parseInt(all_toutiao/7));
+att_score += Number(t);
+$('.toutiao_score').text(t);
+t = count_baidu_score(parseInt(all_baidu/7))
+att_score += Number(t);
+$('.baidu_score').text(t);
+t = count_wanted_score(parseInt(wanted))
+att_score += Number(t);
+$('.wanted_score').text(t);
+att_score = (att_score/5).toFixed(1);
 
-$('.weibo_score').text(count_weibo_score(parseInt(all_weibo/7)));
-$('.weixin_score').text(count_weixin_score(parseInt(all_weixin/7)));
-$('.toutiao_score').text(count_toutiao_score(parseInt(all_toutiao/7)));
-$('.baidu_score').text(count_baidu_score(parseInt(all_baidu/7)));
-$('.wanted_score').text(count_wanted_score(parseInt(wanted)));
 
-
+all_scores = [8,8.5,9,9,9,9];
+all_scores[3] = Number(att_score);
+score_radar_option = {
+    // title: {
+    //     text: '总评分'
+    // },
+    tooltip: {
+        trigger: 'axis'
+    },
+    radar: [
+        {
+            indicator: [
+                {text: '制作班底与演员', max: 10},
+                {text: '背景实力', max: 10},
+                {text: '内容质量', max: 10},
+                {text: '潮流与关注程度', max: 10},
+                {text: '用户评价', max: 10},
+                {text: '历史表现', max: 10}
+            ],
+            center: ['50%','50%'],
+            radius: 50
+        },
+    ],
+    textStyle: {
+        color: '#fff',
+    },
+    series: [
+        {
+            type: 'radar',
+             tooltip: {
+                trigger: 'item'
+            },
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            areaStyle:{
+                shadowColor: '#0000ff',
+            },
+            data: [
+                {
+                    value: all_scores,
+                    name: '延禧攻略'
+                }
+            ]
+        },
+    ],
+};
+createEchart('score_radar', score_radar_option);
+var sum=0;
+for(let i = 0;i<all_scores.length;i++){
+    sum+=all_scores[i];
+}
+sum=(sum/6).toFixed(1);
+$('#total_point').text(sum);
 
 // $('.explain_att').hover(function(){
 

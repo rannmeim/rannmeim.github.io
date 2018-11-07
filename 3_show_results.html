@@ -51,7 +51,7 @@
 					<div class="row_item echart_row_item">
 						<div class="score">
 							<div>总评分</div>
-							<div class="font_num">8.9</div>
+							<div class="font_num" id="total_point">8.9</div>
 							<div>高于 <span class="font_num">70%</span> 同类IP</div>
 							<div>高于 <span class="font_num">65%</span> 所有IP</div>
 						</div>
@@ -167,145 +167,7 @@
 					</div>
 				</div>
 
-				<div class="title title_a">历史市场表现 <img class="explain_hst" src="static/img/q2.svg" style="float: right;" alt="">	</div>
-				<div class="row_box hst_row row_box_a">
-					<div class="row_item">
-						<div class="banner_blue">
-							<div>
-								<div class="title">历史播放指数</div>
-								<div class="score font_num">8.1</div>
-							</div>
-						</div>
-						<div class="wrap_chart">
-							<div id="hst_play_line" class="echart"></div>
-						</div>
-						<div class="cont">
-							<span style="text-align: left;">
-								<span>预测下周优酷视频播放量（日）：7500</span>
-								<br>
-								<span>预测下周腾讯视频播放量（日）：7500</span>
-								<br>
-								<span>预测下周爱奇艺播放指数（日）：8500</span>
-							</span>
-							<br>
-							<br>
-							<span>高于 <span class="font_num">83%</span> 同类IP</span>
-							<span>高于 <span class="font_num">80%</span> 所有IP</span>
-						</div>
-					</div>
 
-					<div class="row_item">
-						<div class="banner_blue">
-							<div>
-								<div class="title">历史收视率</div>
-								<div class="score font_num">8.1</div>
-							</div>
-							<img class="explain" src="static/img/q1.svg" alt="">
-						</div>
-						<div class="wrap_chart">
-							<div id="hst_watch_line" class="echart"></div>
-						</div>
-						<div class="cont">
-							<br>
-							<div>预测下周收视率（日）：7500</div>
-							<br>
-							<span>高于 <span class="font_num">83%</span> 同类IP</span>
-							<span>高于 <span class="font_num">80%</span> 所有IP</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="title title_a">用户留言与评论 <img class="explain_cmt" src="static/img/q2.svg" style="float: right;" alt="">	</div>
-				<div class="row_box cmt_row row_box_a">
-					<div class="row_item">
-						<div class="banner_blue">
-							<div>
-								<div class="title">微博留言</div>
-								<div class="score font_num">8.1</div>
-							</div>
-						</div>
-
-						<!-- <div class="cont">
-							<div>点高赞微博：</div>
-							<div class="font_cont">第一！延禧攻略70集一集不落全部追完了，真的是一部制作精良的剧！大赞！</div>
-							<div class="font_cont">期待期待。终于上星播出了。</div>
-						</div> -->
-						<div class="wrap_chart">
-							<div id="cmt_weibo_pie" class="echart"></div>
-						</div>
-						<div class="cont">
-							<div>高于 <span class="font_num">83%</span> 同类IP</div>
-							<div>高于 <span class="font_num">80%</span> 所有IP</div>
-						</div>
-					</div>
-
-					<div class="row_item">
-						<div class="banner_blue">
-							<div>
-								<div class="title">新闻评论</div>
-								<div class="score font_num">8.1</div>
-							</div>
-						</div>
-
-						<!-- <div class="cont">
-							<div>主流新闻网站评论：</div>
-							<div class="font_cont">一如既往支持吴谨言！</div>
-							<div class="font_cont">喜欢秦岚演的皇后，好温柔！</div>
-							<div class="font_cont">傅璎女孩表示下一部剧快安排上 超甜的那种。</div>
-						</div> -->
-						<div class="wrap_chart">
-							<div id="cmt_news_pie" class="echart"></div>
-						</div>
-						<div class="cont">
-							<div>高于 <span class="font_num">83%</span> 同类IP</div>
-							<div>高于 <span class="font_num">80%</span> 所有IP</div>
-						</div>
-					</div>
-
-					<div class="row_item">
-						<div class="banner_blue">
-							<div>
-								<div class="title">豆瓣评论与评分</div>
-								<div class="score font_num">8.1</div>
-							</div>
-						</div>
-
-						<!-- <div class="cont">
-							<div>豆瓣评分: <span class="font_cont">7.2</span></div>
-							<div>豆瓣短评：</div>
-							<div class="font_cont">昨晚看了几集，比于妈以往宫斗剧服化道制作更加精良，画面质感好，演员演技在线，四星观望。</div>
-						</div> -->
-						<div class="wrap_chart">
-							<div id="cmt_douban_pie" class="echart"></div>
-						</div>
-						<div class="cont">
-							<div>高于 <span class="font_num">83%</span> 同类IP</div>
-							<div>高于 <span class="font_num">80%</span> 所有IP</div>
-						</div>
-					</div>
-	
-					<div class="row_item">
-						<div class="banner_blue">
-							<div>
-								<div class="title">知名影评</div>
-								<div class="score font_num">8.1</div>
-							</div>
-						</div>
-
-						<!-- <div class="cont">
-							<div>豆瓣知名影评：</div>
-							<div>昨晚看了几集，比于妈以往宫斗剧服化道制作更加精良，画面质感好，演员演技在线，四星观望。</div>
-						</div> -->
-						<div class="wrap_chart">
-							<div id="film_critics_pie" class="echart"></div>
-						</div>
-						<div class="cont">
-							<div>高于 <span class="font_num">83%</span> 同类IP</div>
-							<div>高于 <span class="font_num">80%</span> 所有IP</div>
-						</div>
-					</div>
-				</div>
-				
 
 				<div class="title title_a">潮流与关注度 <img class="explain_att" src="static/img/q2.svg" style="float: right;" alt="">	</div>
 				<div class="row_box att_row row_box_a">
@@ -401,6 +263,134 @@
 							</div>
 						</div>
 				</div>
+
+
+
+
+				<div class="title title_a">用户留言与评论 <img class="explain_cmt" src="static/img/q2.svg" style="float: right;" alt="">	</div>
+				<div class="row_box cmt_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">微博留言</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="wrap_chart">
+							<div id="cmt_weibo_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">新闻评论</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="wrap_chart">
+							<div id="cmt_news_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">豆瓣评论与评分</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="wrap_chart">
+							<div id="cmt_douban_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+	
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">知名影评</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+
+						<div class="wrap_chart">
+							<div id="film_critics_pie" class="echart"></div>
+						</div>
+						<div class="cont">
+							<div>高于 <span class="font_num">83%</span> 同类IP</div>
+							<div>高于 <span class="font_num">80%</span> 所有IP</div>
+						</div>
+					</div>
+				</div>
+				
+
+
+
+				<div class="title title_a">历史市场表现 <img class="explain_hst" src="static/img/q2.svg" style="float: right;" alt="">	</div>
+				<div class="row_box hst_row row_box_a">
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">历史播放指数</div>
+								<div class="score font_num">8.1</div>
+							</div>
+						</div>
+						<div class="wrap_chart">
+							<div id="hst_play_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<span style="text-align: left;">
+								<span>预测下周优酷视频播放量（日）：7500</span>
+								<br>
+								<span>预测下周腾讯视频播放量（日）：7500</span>
+								<br>
+								<span>预测下周爱奇艺播放指数（日）：8500</span>
+							</span>
+							<br>
+							<br>
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+
+					<div class="row_item">
+						<div class="banner_blue">
+							<div>
+								<div class="title">历史收视率</div>
+								<div class="score font_num">8.1</div>
+							</div>
+							<img class="explain" src="static/img/q1.svg" alt="">
+						</div>
+						<div class="wrap_chart">
+							<div id="hst_watch_line" class="echart"></div>
+						</div>
+						<div class="cont">
+							<br>
+							<div>预测下周收视率（日）：7500</div>
+							<br>
+							<span>高于 <span class="font_num">83%</span> 同类IP</span>
+							<span>高于 <span class="font_num">80%</span> 所有IP</span>
+						</div>
+					</div>
+				</div>
+
+				
+
 			</div>
 
 
