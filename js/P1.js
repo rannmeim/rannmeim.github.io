@@ -100,8 +100,8 @@ $('#search_input').keydown(function(e){
 }()
 function getData(flag){
     // test
-    if(true){
-    // if($('#search_input').val() == '延禧攻略'){
+    // if(true){
+    if($('#search_input').val() == '延禧攻略'){
         today_weibo=100593,today_weixin=746537,today_baidu=6166,today_toutiao=54401900,wanted=70095,all_weibo=1340552,all_weixin=4968896,all_baidu=34929,all_toutiao=366995300;
         enable_next();
         // 基本属性
