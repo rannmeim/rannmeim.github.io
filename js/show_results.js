@@ -200,13 +200,26 @@ createEchart('invest_scatter', invest_scatter_option);
 
 
 invest_pie_option = {
+    title:{
+        text:'投资去向分析',
+        textStyle:{
+            color: '#4a4a4a',
+            fontSize:14,
+        },
+        left: '115',
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {d}%",
+        // formatter: "{a} <br/>{b} : {c} ({d}%)",
+    },
     series : [
         {
             name: '投资去向',
             type: 'pie',
             radius : '45%',
             center: ['50%', '50%'],
-            data: [{name:'人员费用',value:30},{name:'场地费用',value:15},{name:'拍摄费用',value:10},{name:'其他',value:45}],
+            data: [{name:'人员费用',value:30},{name:'场地费用',value:15},{name:'拍摄费用',value:10},{name:'其他费用',value:45}],
             itemStyle: {
                 emphasis: {
                     shadowBlur: 10,
@@ -221,7 +234,12 @@ createEchart('invest_pie', invest_pie_option);
 
 
 option = {
-    tooltip: {},
+    tooltip: {
+        position:'top',
+        formatter: function (x) {
+            return x.data.intro;
+        },
+    },
     animationDurationUpdate: 1500,
     animationEasingUpdate: 'quinticInOut',
     legend: {
@@ -261,36 +279,43 @@ option = {
                 x: 300,
                 y: 200,
                 category:'演员',
+                intro:'《烽火佳人》系统评分7.2<br/>《多情江山》系统评分8.2<br/>《激战》系统评分7.5<br/>《说走就走不说再见》系统评分7.6',
             }, {
                 name: '许凯',
                 x: 800,
                 y: 200,
                 category:'演员',
+                intro:'《烈火军校》系统评分8.1',
             }, {
                 name: '佘诗曼',
                 x: 450,
                 y: 0,
                 category:'演员',
+                intro:'《使徒行者》系统评分8.4<br/>《公主嫁到》系统评分8.5<br/>《宫心计》系统评分8.8',
             }, {
                 name: '秦岚',
                 x: 650,
                 y: 0,
                 category:'演员',
+                intro:'《烈火军校》系统评分8.1',
             }, {
                 name: '惠楷栋',
                 x: 550,
                 y: 300,
                 category:'导演',
+                intro:'《缉毒精英》系统评分7.8<br/>《阳光警察》系统评分7.3<br/>《烈火军校》系统评分8.1',
             },{
                 name: '聂远',
                 x: 800,
                 y: 80,
                 category:'演员',
+                intro:'《追踪》系统评分7.2<br/>《生死96小时》系统评分7.1',
             },{
                 name: '王冠逸',
                 x: 300,
                 y: 80,
                 category:'演员',
+                intro:'《万水千山总是情》系统评分7.6<br/>《无限春光27》系统评分8.1',
             },],
             // links: [],
             links: [{
@@ -501,6 +526,12 @@ cmt_pie_option = {
     },
     grid:{
         left:'left',
+    },
+    tooltip : {
+        trigger: 'item',
+        position: 'top',
+        formatter: "{a} <br/>{b} : {d}%",
+        // formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
     series : [
         {
