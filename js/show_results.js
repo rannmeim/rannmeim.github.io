@@ -111,6 +111,14 @@ mkt_heatmap_option = {
 createEchart('mkt_heatmap', mkt_heatmap_option);
 
 invest_scatter_option = {
+    title:{
+        text: '投资金额与播放量分布图',
+        textStyle:{
+            color: '#4a4a4a',
+            fontSize:14,
+        },
+        left: '24%',
+    },
     xAxis: {
         scale: true,
         name:'投资金额',
@@ -194,7 +202,7 @@ invest_pie_option = {
             name: '投资去向',
             type: 'pie',
             radius : '45%',
-            center: ['40%', '50%'],
+            center: ['50%', '50%'],
             data: [{name:'人员费用',value:30},{name:'场地费用',value:15},{name:'拍摄费用',value:10},{name:'其他',value:45}],
             itemStyle: {
                 emphasis: {
@@ -417,6 +425,9 @@ createEchart('mkt_adapt_bar', mkt_adapt_bar_option);
 
 
 hst_play_line_option = {
+    tooltip : {
+        position: 'top',
+    },
     grid:{
         left: '18%',
     },
@@ -447,6 +458,9 @@ hst_play_line_option = {
 createEchart('hst_play_line', hst_play_line_option);
 
 option = {
+    tooltip : {
+        position: 'top',
+    },
     legend: {
         data:['总收视率']
     },
@@ -483,7 +497,7 @@ cmt_pie_option = {
             name: '情感分析结果',
             type: 'pie',
             radius : '55%',
-            center: ['40%', '50%'],
+            center: ['50%', '50%'],
             data: [{name:'正面情绪',value:posi_value},{name:'中等',value:neu_value},{name:'负面情绪',value:nega_value}],
             itemStyle: {
                 emphasis: {
@@ -583,6 +597,9 @@ for(let i=0;i<7;i++){
     dt-=1;
 }
 msg_line_option = {
+    tooltip : {
+        position: 'top',
+    },
     legend: {
         data:['微博指数']
     },
