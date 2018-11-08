@@ -254,8 +254,9 @@ option = {
         },
     series : [
         {   
-            edgeLabel:{
-                normal: {
+            emphasis:{
+                edgeLabel:{
+                    color:'grey',
                     show: true,
                     // formatter:'{a},{b},{c}', 
                     formatter: function (x) {
@@ -265,7 +266,7 @@ option = {
                             return ''
                         }
                     } 
-                },
+                }  
             },
             categories:[{
                 name: '导演',
@@ -275,7 +276,16 @@ option = {
             focusNodeAdjacency:true,
             type: 'graph',
             layout: 'none',
-            symbolSize: 50,
+            // layout: 'circular',
+            // layout: 'force',
+            // force:{
+            //     repulsion:2000,
+            // },
+            // circular:{
+            //     rotateLabel: true,
+            // },
+            // layout: 'none',
+            symbolSize: 40,
             label: {
                 normal: {
                     show: true
