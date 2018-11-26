@@ -145,6 +145,11 @@ div.v_line {
   margin-top: 7px;
   vertical-align: top;
 }
+div.check_exist_div{
+  margin-left: 221px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 div.data_label_name {
   width: 80px;
   height: 28px;
@@ -178,6 +183,13 @@ div.data_item_short_div_label {
   width: 20%;
   display: inline-block;
   vertical-align: top;
+}
+div.data_item_short_div_network_index {
+  height: 100%;
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
 }
 div.data_item_short_div_data {
   display: inline-block;
@@ -251,6 +263,7 @@ input.data_item_short_div_data_row {
   padding: 0;
   text-align: left;
   margin: 30px 0;
+  border-width: 2px;
 }
 #data_item_short_div {
   width: 100%;
@@ -293,6 +306,7 @@ input.data_item_short_div_data_row {
   padding: 0;
   text-align: left;
   margin: 30px 0;
+  border-width: 2px;
 }
 .network_index_atr {
   display: block;
@@ -304,13 +318,19 @@ input.data_item_short_div_data_row {
   font-weight: 500;
   color: #9b9b9b;
 }
-.network_index_value {
+.index_value {
   display: block;
   height: 22px;
   width: 100%;
   margin: 30px 0;
   text-align: center;
-  border-width: 0px;
+  border-width: 2px;
+}
+.inputScoreDiv{
+  padding: 30px 30px 30px 100px;
+}
+.item_score{
+  border-width: 2px;
 }
 .data_label_name_1 {
   width: 140px;
@@ -387,4 +407,16 @@ input.data_item_short_div_data_row {
   width: 168px;
   margin-top: 40px;
   vertical-align: top;
+}
+
+#generateScore{
+  text-align: center;
+  border: 0px;
+  font-size: 18px;
+  font-family: PingFangSC-Medium;
+  color: white;
+  background: #9B9B9B;
+  border-radius: 4px;
+  margin-left: -30px;
+  padding-top: 0px;
 }

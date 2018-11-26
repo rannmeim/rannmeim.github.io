@@ -181,6 +181,7 @@ function getData(flag){
             }
         }
         
+
         //历史表现
         var per_data = $('.performance input');
         for(var i=0;i < per_data.length;i++){
@@ -205,8 +206,30 @@ function set_readonly(){
     $('input').attr('readonly', 'readonly').css('border-width','0px');
     $('#search_input').removeAttr('readonly');
 }
+function set_readonly_network_index(){
+    $('.network_index input').attr('readonly', 'readonly').css('border-width','0px');
+    // $('#search_input').removeAttr('readonly');
+}
+function set_readonly_popIndex(){
+    $('.popIndex input').attr('readonly', 'readonly').css('border-width','0px');
+    // $('#search_input').removeAttr('readonly');
+}
+function set_readonly_HP(){
+    $('.HP input').attr('readonly', 'readonly').css('border-width','0px');
+    // $('#search_input').removeAttr('readonly');
+}
 function modify_basic_attr(){
     $('.basic_attr input').removeAttr('readonly').css('border-width','2px').focus(function(){
+        this.select();
+    });
+}
+function modify_popIndex(){
+    $('.popIndex input').removeAttr('readonly').css('border-width','2px').focus(function(){
+        this.select();
+    });
+}
+function modify_HP(){
+    $('HP input').removeAttr('readonly').css('border-width','2px').focus(function(){
         this.select();
     });
 }
@@ -215,15 +238,29 @@ function modify_network_index(){
         this.select();
     });
 }
+
+var scoreList = [];
 function nextpage(){
-    var h = './3_show_results.html?today_weibo='+today_weibo+'&today_weixin='+today_weixin+'&today_baidu='+today_baidu+'&today_toutiao='+today_toutiao+'&wanted='+
-    wanted+'&all_weibo='+all_weibo+'&all_weixin='+all_weixin+'&all_baidu='+all_baidu+'&all_toutiao='+all_toutiao;
-    window.location.href=h; 
+    // [scoreAll, BGScore0, BGScore1, MPScore0, MPScore1, CScore0, CScore1, networkIndexScore, userCommentScore, HPScore]
+    if(scoreList.length == 0){
+         generetaScore();
+    }
+    var score = scoreList;
+    if(score.length > 0){
+        var h = './3_show_results.html?finalScore='+score[0]+'&BGScore0='+score[1]+'&BGScore1='+score[2]+'&MPScore0='+
+        score[3]+'&MPScore1='+score[4]+
+        '&CScore0='+score[5]+'&CScore1='+score[6]+'&PoScore='+score[7]+'&UCScore='+score[8]+'&HPScore='+score[9]+'&chineseName='+
+        encodeURIComponent($('.chineseName')[0].value);
+        window.location.href=h;
+    }
 }
+
 !function init(){
     set_select_all();
-    set_readonly();
+    // set_readonly();
 }()
+
+
 
 function enable_next(){
     $('#next_page').removeAttr('disabled').css('cursor','pointer');
@@ -274,3 +311,119 @@ $('.network_index input').change(function(){
         }
     }
 })
+
+function checkFlag(className){
+    if($(className)[0].checked){
+        return $(className)[0].value
+    }
+    else{
+        return $(className)[1].value   
+    }
+}
+
+function generetaScore(){
+    if($('.chineseName')[0].value == ''){
+        alert('请输入IP基本信息')
+    }
+    else{
+        var scoreAll = 0;
+        var counter = 0;
+        
+        if($('#BGScore')[0].value == '' || scoreList.length == 0){
+            var BGScore0 = Math.floor(Math.random()*4) + 6; 
+            var BGScore1 = Math.floor(Math.random()*4) + 6; 
+            var BGScore = (BGScore0 + BGScore1) / 2;
+        }
+        else{
+            var BGScore0 = scoreList[1];
+            var BGScore1 = scoreList[2];
+            var BGScore = (BGScore0 + BGScore1) / 2;
+        }
+        
+        if($('#MPScore')[0].value == '' || scoreList.length == 0){
+            var MPScore0 = Math.floor(Math.random()*4) + 6; 
+            var MPScore1 = Math.floor(Math.random()*4) + 6; 
+            var MPScore = (MPScore0 + MPScore1) / 2;
+        }
+        else{
+            var MPScore0 = scoreList[3];
+            var MPScore1 = scoreList[4];
+            var MPScore = (MPScore0 + MPScore1) / 2;
+        }
+
+        if($('#CScore')[0].value == '' || scoreList.length == 0){
+            var CScore0 = Math.floor(Math.random()*4) + 6; 
+            var CScore1 = Math.floor(Math.random()*4) + 6; 
+            var CScore = (CScore0 + CScore1) / 2;
+        }
+        else{
+            var CScore0 = scoreList[5];
+            var CScore1 = scoreList[6];
+            var CScore = (CScore0 + CScore1) / 2;
+        }
+    
+        scoreAll += BGScore;
+        scoreAll += MPScore;
+        scoreAll += CScore;
+        counter += 3;
+    
+        var networkIndexScore = '--';
+        // if(checkFlag('.dataFlag_networkIndex') == 'true'){
+            
+        // }
+        if($('.networkScore')[0].value == ''){
+            alert('请输入网络指数得分');
+            return []
+        }
+        else{
+            networkIndexScore = Number($('.networkScore')[0].value);
+            $('#PoScore').val(networkIndexScore);
+            scoreAll += networkIndexScore;
+            counter += 1;
+        }
+        // else{
+        //     $('#PoScore').val('--');
+        // }
+        var userCommentScore = '--';
+        // if(checkFlag('.dataFlag_popIndex') == 'true'){
+        if($('.userCommentScore')[0].value == ''){
+            alert('请输入观众留言与评论得分');
+            return []
+        }
+        else{
+            userCommentScore = Number($('.userCommentScore')[0].value)
+            $('#UCScore').val(userCommentScore);
+            scoreAll += userCommentScore;
+            counter += 1;
+        }
+        // }
+        // else{
+        //     $('#UCScore').val('--');
+        // }
+        var HPScore = '--';
+        // if(checkFlag('.dataFlag_HP') == 'true'){
+        if($('.HPScore')[0].value == ''){
+            alert('请输入历史市场表现得分');
+            return []
+        }
+        else{
+            HPScore = Number($('.HPScore')[0].value)
+            $('#HPScore').val(HPScore);
+            scoreAll += HPScore;
+            counter += 1;
+        }
+        // }
+        // else{
+        //     $('#HPScore').val('--');
+        // }
+
+        $('#MPScore').val(MPScore);
+        $('#CScore').val(CScore);
+        $('#BGScore').val(BGScore);
+    
+        scoreAll /= counter;
+        $('#finalScore').val(scoreAll.toFixed(1))
+        scoreList = [scoreAll, BGScore0, BGScore1, MPScore0, MPScore1, CScore0, CScore1, networkIndexScore, userCommentScore, HPScore]
+        // return [scoreAll, BGScore0, BGScore1, MPScore0, MPScore1, CScore0, CScore1, networkIndexScore, userCommentScore, HPScore]
+    }
+}

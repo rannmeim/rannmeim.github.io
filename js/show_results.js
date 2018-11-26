@@ -34,22 +34,14 @@ var test='test123';
 }()
 
 
-
-
-
-
 function createEchart(id, option){
     var myChart = echarts.init(document.getElementById(id), 'light');
     myChart.setOption(option, true);
 }
 
 
-
-
-
 var months = ['1月','2月', '3月', '4月','5月','6月','7月','8月', '9月','10月','11月', '12月'];
-var cities = ['泰国', '英国', '美国',
-        '大陆', '香港', '韩国', '日本'];
+var cities = ['泰国', '英国', '美国', '大陆', '香港', '韩国', '日本'];
 
 var data = [[0,0,1],[0,1,0],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,3],[0,8,0],[0,9,0],[0,10,0],[0,11,2],[1,0,7],[1,1,0],[1,2,0],[1,3,0],[1,4,0],[1,5,0],[1,6,0],[1,7,0],[1,8,0],[1,9,0],[1,10,5],[1,11,2],[2,0,1],[2,1,1],[2,2,0],[2,3,8],[2,4,1],[2,5,3],[2,6,0],[2,7,0],[2,8,0],[2,9,0],[2,10,3],[2,11,2],[3,0,7],[3,1,3],[3,2,7],[3,3,8],[3,4,14],[3,5,9],[3,6,0],[3,7,0],[3,8,1],[3,9,0],[3,10,5],[3,11,4],[4,0,1],[4,1,3],[4,2,0],[4,3,0],[4,4,0],[4,5,1],[4,6,0],[4,7,0],[4,8,0],[4,9,2],[4,10,4],[4,11,4],[5,0,2],[5,1,1],[5,2,0],[5,3,3],[5,4,0],[5,5,0],[5,6,0],[5,7,0],[5,8,2],[5,9,0],[5,10,4],[5,11,1],[6,0,1],[6,1,0],[6,2,0],[6,3,1],[6,4,2],[6,5,3],[6,6,2],[6,7,4],[6,8,5],[6,9,0],[6,10,1],[6,11,0]
 ,[1,6,3],[2,6,2],[3,7,5],[3,8,3],[4,6,3]];
@@ -734,26 +726,63 @@ function count_wanted_score(x){
     r = 10/(1+Math.exp(-t));
     return r.toFixed(1);
 }
-t = count_weibo_score(parseInt(all_weibo/7));
-att_score += Number(t);
-$('.weibo_score').text(t);
-t = count_weixin_score(parseInt(all_weixin/7));
-att_score += Number(t);
-$('.weixin_score').text(t);
-t = count_toutiao_score(parseInt(all_toutiao/7));
-att_score += Number(t);
-$('.toutiao_score').text(t);
-t = count_baidu_score(parseInt(all_baidu/7))
-att_score += Number(t);
-$('.baidu_score').text(t);
-t = count_wanted_score(parseInt(wanted))
-att_score += Number(t);
-$('.wanted_score').text(t);
-att_score = (att_score/5).toFixed(1);
+if('today_weibo' in window){
+    t = count_weibo_score(parseInt(all_weibo/7));
+    att_score += Number(t);
+    $('.weibo_score').text(t);
+    t = count_weixin_score(parseInt(all_weixin/7));
+    att_score += Number(t);
+    $('.weixin_score').text(t);
+    t = count_toutiao_score(parseInt(all_toutiao/7));
+    att_score += Number(t);
+    $('.toutiao_score').text(t);
+    t = count_baidu_score(parseInt(all_baidu/7))
+    att_score += Number(t);
+    $('.baidu_score').text(t);
+    t = count_wanted_score(parseInt(wanted))
+    att_score += Number(t);
+    $('.wanted_score').text(t);
+    att_score = (att_score/5).toFixed(1);
+}
 
-
-all_scores = [8,8.5,8.3,8.6,8.6,7.5];
-all_scores[3] = Number(att_score);
+if('finalScore' in window){
+    all_scores = [
+        (Number(window.BGScore0)+Number(window.BGScore1))/2,
+        (Number(window.MPScore0)+Number(window.MPScore1))/2,
+        (Number(window.CScore0)+Number(window.CScore1))/2];
+    PoScore = window.PoScore
+    if(PoScore != '--'){
+        all_scores.push(Number(PoScore));
+    }
+    UCScore = window.UCScore
+    if(UCScore != '--'){
+        all_scores.push(Number(UCScore));
+    }
+    HPScore = window.HPScore
+    if(HPScore != '--'){
+        all_scores.push(Number(HPScore))
+    }
+    
+    $('.BGScore0').text(window.BGScore0);
+    $('.BGScor1').text(window.BGScore1);
+    $('.MPScore0').text(window.MPScore0);
+    $('.MPScore1').text(window.MPScore1);
+    $('.CScore0').text(window.CScore0);
+    $('.CScore1').text(window.CScore1);
+    $('.PoScore').text(window.PoScore);
+    $('.UCScore').text(window.UCScore);
+    $('.HPScore').text(window.HPScore);
+    $('.chineseName').text(decodeURIComponent(window.chineseName));
+    $('.cont_row span').text('-----');
+    $('.largerThan').text('--');
+    $('.prediction').text('--');
+    Name = decodeURIComponent(window.chineseName);
+}
+else{
+    all_scores = [8,8.5,8.3,8.6,8.6,7.5];
+    all_scores[3] = Number(att_score);
+    Name = '延禧攻略';
+}
 score_radar_option = {
     // title: {
     //     text: '总评分'
@@ -791,7 +820,7 @@ score_radar_option = {
             data: [
                 {
                     value: all_scores,
-                    name: '延禧攻略'
+                    name: Name
                 }
             ]
         },
@@ -802,7 +831,7 @@ var sum=0;
 for(let i = 0;i<all_scores.length;i++){
     sum+=all_scores[i];
 }
-sum=(sum/6).toFixed(1);
+sum=(sum/all_scores.length).toFixed(1);
 $('#total_point').text(sum);
 
 // $('.explain_att').hover(function(){

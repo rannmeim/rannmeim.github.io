@@ -6,6 +6,11 @@
     <title>IP价值评估系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/P1.css">
+    <script>
+        function onlineInsert(){
+            window.open("fill_in_info.html","fill_in_info");
+        }
+    </script>
 </head>
 
 <body>
@@ -16,6 +21,9 @@
                 <img id="search_img" src="static/img/search.svg" alt="" class="icon">
                 <input type="text" name="" id="search_input" placeholder="请输入IP名称">
             </div><button id="get_data_btn" onclick="getData(true);">获 取 数 据</button>
+            
+            <button id="batch_upload_btn" onclick="onlineInsert();">在线填写</button>
+            
             <img id="batch_upload_img" src="static/img/batch_upload.svg" class="icon">
             <button id="batch_upload_btn">批量导入</button>
             <img id="download_template_img" src="static/img/download_template.svg" class="icon">
