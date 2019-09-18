@@ -34,11 +34,17 @@
         </div>
     </div>
     <!-- 基本属性 -->
-    <div class="data_label">
+    <div class="data_label basic">
         <div class="v_line"></div>
         <div class="data_label_name">基本属性</div>
-        <img class="modify_img" src="static/img/modify.svg" class="icon">
-        <button class="modify_label" onclick="modify_basic_attr()">修改</button>
+        <div class="wrap_modify_btn" style="display: inline-block;">
+            <img class="modify_img" src="static/img/modify.svg" class="icon">
+            <button class="modify_label" onclick="modify_basic_attr()">修改</button>
+        </div>
+        <div class="wrap_save_btn" style="display: none;">
+            <img class="modify_img" src="static/img/save.svg" class="icon">
+            <button class="modify_label" onclick="save_basic_attr()">保存</button>
+        </div>
     </div>
     <div class="data_content basic_attr">
         <div class="data_item_short_div">

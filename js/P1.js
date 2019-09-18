@@ -209,6 +209,13 @@ function modify_basic_attr(){
     $('.basic_attr input').removeAttr('readonly').css('border-width','2px').focus(function(){
         this.select();
     });
+    $('.basic .wrap_modify_btn').css('display', 'none');
+    $('.basic .wrap_save_btn').css('display', 'inline-block');
+}
+function save_basic_attr(){
+    $('.basic_attr input').attr('readonly', 'readonly').css('border-width','0px');
+    $('.basic .wrap_modify_btn').css('display', 'inline-block');
+    $('.basic .wrap_save_btn').css('display', 'none');
 }
 function modify_network_index(){
     $('.network_index input').removeAttr('readonly').css('border-width','2px').focus(function(){
